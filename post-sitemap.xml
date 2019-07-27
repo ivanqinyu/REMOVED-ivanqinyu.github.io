@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/Python-Foundation-1-1/</loc>
+        <lastmod>2019-07-27T04:31:13.579Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Python-Foundation-Review-1-1/</loc>
+        <lastmod>2019-07-18T15:51:23.032Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/test/</loc>
-        <lastmod>2019-07-17T14:03:12.804Z</lastmod>
+        <lastmod>2019-07-18T15:23:21.148Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
