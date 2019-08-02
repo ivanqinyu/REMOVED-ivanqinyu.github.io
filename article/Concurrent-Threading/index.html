@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Github] Test - ivanqinyu 秦禹
+          [Concurrent] Threading - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/test/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Concurrent-Threading/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,14 +88,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Github" title="Github">Github</a>
+                              <a class="tag" href="/tags/#Concurrent" title="Concurrent">Concurrent</a>
+                            
+                              <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
                         </div>
-                        <h1>[Github] Test</h1>
-                        <h2 class="subheading">A test t-e-s-t.</h2>
+                        <h1>[Concurrent] Threading</h1>
+                        <h2 class="subheading">Concurrent preview in python</h2>
                         <span class="meta">
                             Posted by Ivan Qin on
-                            2019-07-17
+                            2019-07-29
                         </span>
                     </div>
                 
@@ -212,19 +214,42 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>This is the test for my github personal page.</p>
-<p>Have fun! :)</p>
-
+                <p><strong>Multithreading is an effective way to speed up program calculations.</strong></p>
+<h1 id="1-add-threading">1. Add threading</h1>
+<p>Firstly, we need import the threading module.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br></pre></td></tr></table></figure>
+<p>Get the number of active threading</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">threading.active_count()</span><br><span class="line"><span class="comment"># 2</span></span><br></pre></td></tr></table></figure>
+<p>Get the information of all the threading</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">threading.enumerate()</span><br><span class="line"><span class="comment"># [&lt;_MainThread(MainThread, started 140736011932608)&gt;, &lt;Thread(SockThread, started daemon 123145376751616)&gt;]</span></span><br></pre></td></tr></table></figure>
+<p>Get current threading</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">threading.current_thread()</span><br><span class="line"><span class="comment"># &lt;_MainThread(MainThread, started 140736011932608)&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Add threading (target)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">thread_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'This is a thread of %s'</span> % threading.current_thread())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    thread = threading.Thread(target=thread_job,) </span><br><span class="line">    thread.start()  <span class="comment"># start the threading</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h1 id="2-join">2. Join</h1>
+<h2 id="21-without-join">2.1 without join</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">thread_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"T1 start\n"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)   <span class="comment">#set gap as 0.1s</span></span><br><span class="line">    print(<span class="string">"T1 finish\n"</span>)</span><br><span class="line"></span><br><span class="line">added_thread = threading.Thread(target=thread_job, name=<span class="string">'T1'</span>)</span><br><span class="line">added_thread.start()</span><br><span class="line">print(<span class="string">"all done\n"</span>)</span><br></pre></td></tr></table></figure>
+<p>The outcome will be:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">T1 start</span></span><br><span class="line"><span class="string">all done</span></span><br><span class="line"><span class="string">T1 finish</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<h2 id="22-with-join">2.2 with join</h2>
+<p>Join is the way to stop one of threading to wait the other finish.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">T1_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"T1 start\n"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)</span><br><span class="line">    print(<span class="string">"T1 finish\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">T2_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"T2 start\n"</span>)</span><br><span class="line">    print(<span class="string">"T2 finish\n"</span>)</span><br><span class="line"></span><br><span class="line">thread_1 = threading.Thread(target=T1_job, name=<span class="string">'T1'</span>)</span><br><span class="line">thread_2 = threading.Thread(target=T2_job, name=<span class="string">'T2'</span>)</span><br><span class="line">thread_1.start()</span><br><span class="line">thread_2.start()</span><br><span class="line">print(<span class="string">"all done\n"</span>)</span><br></pre></td></tr></table></figure>
+<p>for example, if we want do T2_job after T1 finish, we could do as follow:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">T1_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"T1 start\n"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)</span><br><span class="line">    print(<span class="string">"T1 finish\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">T2_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"T2 start\n"</span>)</span><br><span class="line">    print(<span class="string">"T2 finish\n"</span>)</span><br><span class="line"></span><br><span class="line">thread_1 = threading.Thread(target=T1_job, name=<span class="string">'T1'</span>)</span><br><span class="line">thread_2 = threading.Thread(target=T2_job, name=<span class="string">'T2'</span>)</span><br><span class="line">thread_1.start()</span><br><span class="line"></span><br><span class="line">thread_1.join()	<span class="comment"># notice the difference!</span></span><br><span class="line"></span><br><span class="line">thread_2.start()</span><br><span class="line">print(<span class="string">"all done\n"</span>)</span><br></pre></td></tr></table></figure>
+<p>If we want print all done after all threading finish:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">T1_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"T1 start\n"</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)</span><br><span class="line">    print(<span class="string">"T1 finish\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">T2_job</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"T2 start\n"</span>)</span><br><span class="line">    print(<span class="string">"T2 finish\n"</span>)</span><br><span class="line"></span><br><span class="line">thread_1 = threading.Thread(target=T1_job, name=<span class="string">'T1'</span>)</span><br><span class="line">thread_2 = threading.Thread(target=T2_job, name=<span class="string">'T2'</span>)</span><br><span class="line">thread_1.start()</span><br><span class="line">thread_2.start() </span><br><span class="line"></span><br><span class="line">thread_1.join()	<span class="comment"># notice the difference!</span></span><br><span class="line">thread_2.join()	<span class="comment"># notice the difference!</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"all done\n"</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="23-queue">2.3 Queue</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Python-Foundation-1-1/" data-toggle="tooltip" data-placement="top" title="[Python] Foundation 1.1">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/article/Python-Foundation-1-2/" data-toggle="tooltip" data-placement="top" title="[Python] Foundation 1.2">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -305,7 +330,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Github" title="Github">Github</a>
+                          <a class="tag" href="/tags/#Concurrent" title="Concurrent">Concurrent</a>
+                        
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                     </div>
                 </section>
