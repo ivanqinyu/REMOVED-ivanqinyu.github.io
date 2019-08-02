@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archive 文章总览</a>
+                            <a href="/tags/">Tags 文章分类</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags 文章分类</a>
+                            <a href="/archive/">Archive 文章总览</a>
                         </li>
                         
                     
@@ -198,9 +198,9 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                    <a href="#Concurrent" title="Concurrent" rel="1">Concurrent</a>
+                    <a href="#Concurrent" title="Concurrent" rel="2">Concurrent</a>
                 
-                    <a href="#Python" title="Python" rel="3">Python</a>
+                    <a href="#Python" title="Python" rel="4">Python</a>
                 
                     <a href="#Github" title="Github" rel="1">Github</a>
                 
@@ -213,6 +213,21 @@
                 <span class="fa fa-tag listing-seperator" id="Concurrent">
                     <span class="tag-text">Concurrent</span>
                 </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/article/Concurrent-Multiprocessing/">
+                        <h2 class="post-title">
+                            [Concurrent] Multiprocessing
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
                 
                   <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -245,6 +260,21 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
+                     <a href="/article/Concurrent-Multiprocessing/">
+                        <h2 class="post-title">
+                            [Concurrent] Multiprocessing
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
                      <a href="/article/Concurrent-Threading/">
                         <h2 class="post-title">
                             [Concurrent] Threading
@@ -264,9 +294,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/Python-Foundation-1-2/">
+                     <a href="/article/Python-Foundation-2/">
                         <h2 class="post-title">
-                            [Python] Foundation 1.2
+                            [Python] Foundation 2
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -283,9 +313,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/article/Python-Foundation-1-1/">
+                     <a href="/article/Python-Foundation-1/">
                         <h2 class="post-title">
-                            [Python] Foundation 1.1
+                            [Python] Foundation 1
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -466,7 +496,7 @@
 <script>
     // dynamic User by Hux
     var _gaId = 'UA-144023870-1';
-    var _gaDomain = 'http://ivanqinyu.github.io';
+    var _gaDomain = 'undefined';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

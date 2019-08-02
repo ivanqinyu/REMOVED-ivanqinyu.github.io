@@ -141,14 +141,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archive 文章总览</a>
+                            <a href="/tags/">Tags 文章分类</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags 文章分类</a>
+                            <a href="/archive/">Archive 文章总览</a>
                         </li>
                         
                     
@@ -229,6 +229,21 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <li >
+                    08-02
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/article/Concurrent-Multiprocessing/" style="color: #0085a1">
+                        <span>
+                            [Concurrent] Multiprocessing
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
                     07-29
                     <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                     <a href="/article/Concurrent-Threading/" style="color: #0085a1">
@@ -246,9 +261,9 @@
                  <li >
                     07-27
                     <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Python-Foundation-1-2/" style="color: #0085a1">
+                    <a href="/article/Python-Foundation-2/" style="color: #0085a1">
                         <span>
-                            [Python] Foundation 1.2
+                            [Python] Foundation 2
                         </span>
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -261,9 +276,9 @@
                  <li >
                     07-26
                     <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Python-Foundation-1-1/" style="color: #0085a1">
+                    <a href="/article/Python-Foundation-1/" style="color: #0085a1">
                         <span>
-                            [Python] Foundation 1.1
+                            [Python] Foundation 1
                         </span>
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -408,9 +423,11 @@
     <div class="tags">
         
             
+            <a href="/tags/#Concurrent" title="Concurrent" rel="2">Concurrent</a>
+            
         
             
-            <a href="/tags/#Python" title="Python" rel="3">Python</a>
+            <a href="/tags/#Python" title="Python" rel="4">Python</a>
             
         
             
@@ -426,15 +443,19 @@
     <ul>
       
         <li>
+          <a href="/article/Concurrent-Multiprocessing/">[Concurrent] Multiprocessing</a>
+        </li>
+      
+        <li>
           <a href="/article/Concurrent-Threading/">[Concurrent] Threading</a>
         </li>
       
         <li>
-          <a href="/article/Python-Foundation-1-2/">[Python] Foundation 1.2</a>
+          <a href="/article/Python-Foundation-2/">[Python] Foundation 2</a>
         </li>
       
         <li>
-          <a href="/article/Python-Foundation-1-1/">[Python] Foundation 1.1</a>
+          <a href="/article/Python-Foundation-1/">[Python] Foundation 1</a>
         </li>
       
         <li>
@@ -449,7 +470,7 @@
         
     <h5>ARCHIVES</h5>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li></ul>
     </div>
 
         <hr>
@@ -595,7 +616,7 @@
 <script>
     // dynamic User by Hux
     var _gaId = 'UA-144023870-1';
-    var _gaDomain = 'http://ivanqinyu.github.io';
+    var _gaDomain = 'undefined';
 
     // Originial
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

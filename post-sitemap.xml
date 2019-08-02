@@ -7,24 +7,32 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/Concurrent-Multiprocessing/</loc>
+        <lastmod>2019-08-02T14:03:58.603Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Python-Foundation-2/</loc>
+        <lastmod>2019-08-02T13:53:17.232Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Python-Foundation-1/</loc>
+        <lastmod>2019-08-02T13:52:16.283Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/Concurrent-Threading/</loc>
-        <lastmod>2019-08-02T13:48:14.929Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ivanqinyu.github.io/article/Python-Foundation-1-2/</loc>
-        <lastmod>2019-07-28T04:08:51.648Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ivanqinyu.github.io/article/Python-Foundation-1-1/</loc>
-        <lastmod>2019-07-28T02:24:47.869Z</lastmod>
+        <lastmod>2019-08-02T13:51:01.892Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
