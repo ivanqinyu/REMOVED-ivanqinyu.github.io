@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          About 关于我 - ivanqinyu 秦禹
+          [Tkinter] Entry&amp;Text - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/about/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tkinter-Entry-Text/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/about.jpg')
-            /*page*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,20 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>About 关于我</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">不忘初心 牢记使命</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                            
+                              <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
+                            
+                        </div>
+                        <h1>[Tkinter] Entry&amp;Text</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Ivan Qin on
+                            2019-08-12
+                        </span>
                     </div>
                 
 
@@ -191,222 +201,196 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <h3 id="一句话">一句话</h3>
-<blockquote>
-<p>不忘初心 牢记使命</p>
-</blockquote>
-<h3 id="关于我">关于我</h3>
-<blockquote>
-<p>喜欢数学，喜欢代码，喜欢研究了解技术。</p>
-</blockquote>
-<h3 id="学习经历">学习经历</h3>
-<blockquote>
-<p>2006-2012 江苏省南京市拉萨路小学</p>
-<p>2012-2015 江苏省南京市南京外国语学校初中</p>
-<p>2015-2016 英国南安普顿依晨语言学院</p>
-<p>2016-2018 英国伯明翰爱德华六世学院</p>
-<p>2018-2021 英国布里斯托大学 计算机与数学双学位（在读）</p>
-</blockquote>
-<h3 id="参与社区">参与社区</h3>
-<blockquote>
-<p>Github:<a href="https://github.com/ivanqinyu" target="_blank" rel="noopener">https://github.com/ivanqinyu</a></p>
-<p>知乎Zhihu:<a href="https://zhihu.com/people/ivanqinyu" target="_blank" rel="noopener">https://zhihu.com/people/ivanqinyu</a></p>
-</blockquote>
-<h3 id="联系我">联系我</h3>
-<blockquote>
-<p>邮箱Email: <a href="mailto:ivanqinyu@gmail.com" target="_blank" rel="noopener">ivanqinyu@gmail.com</a></p>
-<p>国内邮箱: <a href="mailto:916798384@qq.com" target="_blank" rel="noopener">916798384@qq.com</a></p>
-<p>微信Wechat: njqinyu</p>
-<p>QQ:916798384</p>
-</blockquote>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">window.title(<span class="string">'my window'</span>)</span><br><span class="line">window.geometry(<span class="string">'200x200'</span>)</span><br><span class="line"><span class="comment"># e = tk.Entry(window, show="*")</span></span><br><span class="line">e = tk.Entry(window, show=<span class="keyword">None</span>)</span><br><span class="line">e.pack()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_point</span><span class="params">()</span>:</span></span><br><span class="line">    var = e.get()</span><br><span class="line">    t.insert(<span class="string">'insert'</span>, var)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_end</span><span class="params">()</span>:</span></span><br><span class="line">    var = e.get()</span><br><span class="line">    <span class="comment"># t.insert('end', var)</span></span><br><span class="line">    t.insert(<span class="number">2.2</span>, var) <span class="comment">#Line 2, the first letter will be the second place</span></span><br><span class="line"></span><br><span class="line">b1 = tk.Button(window, text=<span class="string">'insert point'</span>, width=<span class="number">15</span>,</span><br><span class="line">              height=<span class="number">2</span>, command=insert_point)</span><br><span class="line">b1.pack()</span><br><span class="line">b2 = tk.Button(window, text=<span class="string">'insert end'</span>,</span><br><span class="line">               command=insert_end)</span><br><span class="line">b2.pack()</span><br><span class="line">t = tk.Text(window, height=<span class="number">2</span>)</span><br><span class="line">t.pack()</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Tkinter-Button-Label/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Button&Label">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
                 <br>
 
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wxpay.jpg"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">保存图片 扫一扫 好人平安</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
-                <!-- 如果开启评论功能 -->
+                <div class="aplayer"
+                    data-id="117578447"
+                    data-server="netease"
+                    data-type="playlist"
+                    data-fixed="true" >
+                </div>
                 
-                    <hr>
 
-                    
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
 
-                    
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
 
-                    
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
 
-                    
+                
 
-                    
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTc1NS8yMjI2Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-                    
+       if (typeof LivereTower === 'function') { return; }
 
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
-
-        
-            <img id = "avatar_pic" src="/img/avatar/qin.jpg" />
-        
-
-        
-            <p>秦能统一 禹能治水 计算机数学学生</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
-                <li>
-                    <a target="_blank" href="https://www.zhihu.com/people/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="http://weibo.com/5020251689">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="https://www.facebook.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Featured Tags -->
 
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#Concurrent" title="Concurrent" rel="2">Concurrent</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="6">Python</a>
-            
-        
-            
-            <a href="/tags/#Tkinter" title="Tkinter" rel="2">Tkinter</a>
-            
-        
-            
-        
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/Tkinter-Entry-Text/">[Tkinter] Entry&amp;Text</a>
-        </li>
-      
-        <li>
-          <a href="/article/Tkinter-Button-Label/">[Tkinter] Button&amp;Label</a>
-        </li>
-      
-        <li>
-          <a href="/article/Concurrent-Multiprocessing/">[Concurrent] Multiprocessing</a>
-        </li>
-      
-        <li>
-          <a href="/article/Concurrent-Threading/">[Concurrent] Threading</a>
-        </li>
-      
-        <li>
-          <a href="/article/Python-Foundation-2/">[Python] Foundation 2</a>
-        </li>
-      
-    </ul>
-  </div>
 
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li></ul>
-    </div>
 
-        <hr>
-    
-</div>
 
-        
-    </div>
-</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->

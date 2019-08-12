@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/Tkinter-Entry-Text/</loc>
+        <lastmod>2019-08-12T08:51:19.158Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/Tkinter-Button-Label/</loc>
-        <lastmod>2019-08-10T16:13:03.452Z</lastmod>
+        <lastmod>2019-08-12T08:08:30.605Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
