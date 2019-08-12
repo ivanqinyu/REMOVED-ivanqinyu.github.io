@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          ivanqinyu 秦禹
+          [Tkinter] Listbox - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/tags/Concurrent/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tkinter-Listbox/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/archives-widget.jpg')
-            /*page*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,20 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>Ivan Qin</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">秦禹个人主页</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                            
+                              <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
+                            
+                        </div>
+                        <h1>[Tkinter] Listbox</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Ivan Qin on
+                            2019-08-12
+                        </span>
                     </div>
                 
 
@@ -191,344 +201,196 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 archive">
-            <!-- 归档列表 -->
-            
-            
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">window.title(<span class="string">'my window'</span>)</span><br><span class="line">window.geometry(<span class="string">'200x200'</span>)</span><br><span class="line"></span><br><span class="line">var1=tk.StringVar()</span><br><span class="line">l = tk.Label(window,bg=<span class="string">'yellow'</span>,width=<span class="number">4</span>,textvariable=var1)</span><br><span class="line">l.pack()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_selection</span><span class="params">()</span>:</span></span><br><span class="line">    value = lb.get(lb.curselection())</span><br><span class="line">    var1.set(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b1 = tk.Button(window,text=<span class="string">'print selection'</span>,width=<span class="number">15</span>, height=<span class="number">2</span>,command=print_selection)</span><br><span class="line">b1.pack()</span><br><span class="line"></span><br><span class="line">var2 = tk.StringVar()</span><br><span class="line">var2.set((<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>))</span><br><span class="line">lb = tk.Listbox(window,listvariable=var2)</span><br><span class="line"></span><br><span class="line">lb.pack()</span><br><span class="line">items = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">    lb.insert(<span class="string">'end'</span>,item)</span><br><span class="line">lb.insert(<span class="number">1</span>,<span class="string">'first'</span>)</span><br><span class="line">lb.insert(<span class="number">2</span>,<span class="string">'second'</span>)</span><br><span class="line"></span><br><span class="line">lb.delete(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-                <ul>
                 
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Tkinter-Listbox/" style="color: #0085a1">
-                        <span>
-                            [Tkinter] Listbox
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-12
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Tkinter-Entry-Text/" style="color: #0085a1">
-                        <span>
-                            [Tkinter] Entry&Text
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-11
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Tkinter-Button-Label/" style="color: #0085a1">
-                        <span>
-                            [Tkinter] Button&Label
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    08-02
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Concurrent-Multiprocessing/" style="color: #0085a1">
-                        <span>
-                            [Concurrent] Multiprocessing
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-29
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Concurrent-Threading/" style="color: #0085a1">
-                        <span>
-                            [Concurrent] Threading
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-27
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Python-Foundation-2/" style="color: #0085a1">
-                        <span>
-                            [Python] Foundation 2
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-26
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/Python-Foundation-1/" style="color: #0085a1">
-                        <span>
-                            [Python] Foundation 1
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    07-17
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/article/test/" style="color: #0085a1">
-                        <span>
-                            [Github] Test
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Tkinter-Entry-Text/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Entry&Text">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-
-<style type="text/css">
-
-   @media (min-width: 992px) {
-   .archive {
-       margin-left: 8.33333333%;
-       padding-right: 26.333333%;
-   }
-}
-</style>
-
-<style type="text/css">
-   @media (min-width: 1200px){
-   .archive {
-   margin-left: 16.66666667%;
-   padding-right: 16.666667%;
-   }
-}
-</style>
-
 
                 <br>
 
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wxpay.jpg"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">保存图片 扫一扫 好人平安</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
-                <!-- 如果开启评论功能 -->
+                <div class="aplayer"
+                    data-id="117578447"
+                    data-server="netease"
+                    data-type="playlist"
+                    data-fixed="true" >
+                </div>
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTc1NS8yMjI2Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
-
-        
-            <img id = "avatar_pic" src="/img/avatar/qin.jpg" />
-        
-
-        
-            <p>秦能统一 禹能治水 计算机数学学生</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
-                <li>
-                    <a target="_blank" href="https://www.zhihu.com/people/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="http://weibo.com/5020251689">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="https://www.facebook.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Featured Tags -->
 
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#Concurrent" title="Concurrent" rel="2">Concurrent</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="7">Python</a>
-            
-        
-            
-            <a href="/tags/#Tkinter" title="Tkinter" rel="3">Tkinter</a>
-            
-        
-            
-        
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/Tkinter-Listbox/">[Tkinter] Listbox</a>
-        </li>
-      
-        <li>
-          <a href="/article/Tkinter-Entry-Text/">[Tkinter] Entry&amp;Text</a>
-        </li>
-      
-        <li>
-          <a href="/article/Tkinter-Button-Label/">[Tkinter] Button&amp;Label</a>
-        </li>
-      
-        <li>
-          <a href="/article/Concurrent-Multiprocessing/">[Concurrent] Multiprocessing</a>
-        </li>
-      
-        <li>
-          <a href="/article/Concurrent-Threading/">[Concurrent] Threading</a>
-        </li>
-      
-    </ul>
-  </div>
 
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li></ul>
-    </div>
 
-        <hr>
-    
-</div>
 
-        
-    </div>
-</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->
