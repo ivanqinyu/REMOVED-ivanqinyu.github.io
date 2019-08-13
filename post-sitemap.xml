@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/Tkinter-Frame/</loc>
+        <lastmod>2019-08-13T12:16:49.334Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Tkinter-Menubar/</loc>
+        <lastmod>2019-08-13T12:09:06.206Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Tkinter-Canvas/</loc>
+        <lastmod>2019-08-12T11:25:23.946Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/Tkinter-Checkbutton/</loc>
         <lastmod>2019-08-12T09:59:41.944Z</lastmod>
         <changefreq>weekly</changefreq>

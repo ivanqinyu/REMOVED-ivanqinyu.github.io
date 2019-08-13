@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Tkinter] Radiobutton - ivanqinyu 秦禹
+          [Tkinter] Menubar - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tkinter-Radiobutton/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tkinter-Menubar/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -93,11 +93,11 @@
                               <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
                             
                         </div>
-                        <h1>[Tkinter] Radiobutton</h1>
+                        <h1>[Tkinter] Menubar</h1>
                         <h2 class="subheading">Tkinter GUI</h2>
                         <span class="meta">
                             Posted by Ivan Qin on
-                            2019-08-10
+                            2019-08-13
                         </span>
                     </div>
                 
@@ -214,7 +214,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">window.title(<span class="string">'my window'</span>)</span><br><span class="line">window.geometry(<span class="string">'200x200'</span>)</span><br><span class="line"></span><br><span class="line">var=tk.StringVar()</span><br><span class="line">l = tk.Label(window,bg=<span class="string">'yellow'</span>,text=<span class="string">'empty'</span>)</span><br><span class="line">l.pack()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_selection</span><span class="params">()</span>:</span></span><br><span class="line">    l.config(text=<span class="string">'you have select'</span> + var.get())</span><br><span class="line">    </span><br><span class="line">r1=tk.Radiobutton(window,text=<span class="string">'Option A'</span>,variable=var,value=<span class="string">'A'</span>,command=print_selection)</span><br><span class="line">r1.pack()</span><br><span class="line">r2=tk.Radiobutton(window,text=<span class="string">'Option B'</span>,variable=var,value=<span class="string">'B'</span>,command=print_selection)</span><br><span class="line">r2.pack()</span><br><span class="line">r3=tk.Radiobutton(window,text=<span class="string">'Option C'</span>,variable=var,value=<span class="string">'C'</span>,command=print_selection)</span><br><span class="line">r3.pack()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">window.title(<span class="string">'my window'</span>)</span><br><span class="line">window.geometry(<span class="string">'200x200'</span>)</span><br><span class="line"></span><br><span class="line">l = tk.Label(window, text=<span class="string">''</span>, bg=<span class="string">'yellow'</span>)</span><br><span class="line">l.pack()</span><br><span class="line">counter = <span class="number">0</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">do_job</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> counter</span><br><span class="line">    l.config(text=<span class="string">'do '</span>+ str(counter))</span><br><span class="line">    counter+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">menubar = tk.Menu(window)</span><br><span class="line">filemenu = tk.Menu(menubar, tearoff=<span class="number">0</span>)</span><br><span class="line">menubar.add_cascade(label=<span class="string">'File'</span>, menu=filemenu)</span><br><span class="line">filemenu.add_command(label=<span class="string">'New'</span>, command=do_job)</span><br><span class="line">filemenu.add_command(label=<span class="string">'Open'</span>, command=do_job)</span><br><span class="line">filemenu.add_command(label=<span class="string">'Save'</span>, command=do_job)</span><br><span class="line">filemenu.add_separator()</span><br><span class="line">filemenu.add_command(label=<span class="string">'Exit'</span>, command=window.quit)</span><br><span class="line"></span><br><span class="line">editmenu = tk.Menu(menubar, tearoff=<span class="number">0</span>)</span><br><span class="line">menubar.add_cascade(label=<span class="string">'Edit'</span>, menu=editmenu)</span><br><span class="line">editmenu.add_command(label=<span class="string">'Cut'</span>, command=do_job)</span><br><span class="line">editmenu.add_command(label=<span class="string">'Copy'</span>, command=do_job)</span><br><span class="line">editmenu.add_command(label=<span class="string">'Paste'</span>, command=do_job)</span><br><span class="line"></span><br><span class="line">submenu = tk.Menu(filemenu)</span><br><span class="line">filemenu.add_cascade(label=<span class="string">'Import'</span>, menu=submenu, underline=<span class="number">0</span>)</span><br><span class="line">submenu.add_command(label=<span class="string">"Submenu1"</span>, command=do_job)</span><br><span class="line"></span><br><span class="line">window.config(menu=menubar)</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -223,12 +223,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Tkinter-Scale/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Scale">&larr; Previous Post</a>
+                            <a href="/article/Tkinter-Frame/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Frame">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/Tkinter-Listbox/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Listbox">Next Post &rarr;</a>
+                            <a href="/article/Tkinter-Canvas/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Canvas">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
