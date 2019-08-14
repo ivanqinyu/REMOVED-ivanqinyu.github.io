@@ -7,8 +7,24 @@
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/article/Tensorflow-1-Preview-install/</loc>
-        <lastmod>2019-08-14T15:37:38.181Z</lastmod>
+        <loc>http://www.ivanqinyu.github.io/article/Tensorflow-2-Tensorlow-Frame/</loc>
+        <lastmod>2019-08-14T15:54:01.810Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Tensorflow-1-2-Preview-install/</loc>
+        <lastmod>2019-08-14T15:52:49.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Tensorflow-3-1-Frame-Tensor-Graph-Session/</loc>
+        <lastmod>2019-08-14T15:39:03.809Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Tkinter] Frame - ivanqinyu 秦禹
+          [Tensorflow] 1&amp;2 Preview  &amp; Install - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tkinter-Frame/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tensorflow-1-2-Preview-install/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,14 +90,14 @@
                             
                               <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
-                              <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
+                              <a class="tag" href="/tags/#Tensorflow" title="Tensorflow">Tensorflow</a>
                             
                         </div>
-                        <h1>[Tkinter] Frame</h1>
-                        <h2 class="subheading">Tkinter GUI</h2>
+                        <h1>[Tensorflow] 1&amp;2 Preview  &amp; Install</h1>
+                        <h2 class="subheading">Tensorflow note</h2>
                         <span class="meta">
                             Posted by Ivan Qin on
-                            2019-08-13
+                            2019-08-14
                         </span>
                     </div>
                 
@@ -214,7 +214,40 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">window.title(<span class="string">'my window'</span>)</span><br><span class="line">window.geometry(<span class="string">'200x200'</span>)</span><br><span class="line">tk.Label(window, text=<span class="string">'on the window'</span>).pack()</span><br><span class="line"></span><br><span class="line">frm = tk.Frame(window)</span><br><span class="line">frm.pack()</span><br><span class="line">frm_l = tk.Frame(frm, )</span><br><span class="line">frm_r = tk.Frame(frm)</span><br><span class="line">frm_l.pack(side=<span class="string">'left'</span>)</span><br><span class="line">frm_r.pack(side=<span class="string">'right'</span>)</span><br><span class="line"></span><br><span class="line">tk.Label(frm_l, text=<span class="string">'on the frm_l1'</span>).pack()</span><br><span class="line">tk.Label(frm_l, text=<span class="string">'on the frm_l2'</span>).pack()</span><br><span class="line">tk.Label(frm_r, text=<span class="string">'on the frm_r1'</span>).pack()</span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+                <h1 id="1-preview">1. Preview</h1>
+<h2 id="what-is-ai">What is AI</h2>
+<p>Artificial Intelligence is first talked by the <strong>Alan Mathison Turing</strong>(1912-1954) an English computer scientist, cryptanalyst, mathematician and theoretical biologist.</p>
+<p>In 1950, from his paper <em>Can machine think?</em> talked about the <strong>Turing test</strong>.</p>
+<p>The <strong>Turing Test</strong> is a method of inquiry in artificial intelligence (AI) for determining whether or not a computer is capable of thinking like a human being.  If over 30% people think it is human, then this machine pass the Turing Test. Turing predicted the machine will pass this test after 2000. However, The first time for the machine passed the Turing Test is 2014 by Reading university, it was later than Turing’s guess 14 years.</p>
+<p>Also, nowadays, there are many voice assistants in our daily life, for example, Google assistants, Cortana from Microsoft, Apple’s Siri, Alexa from Amazon, XiaoAI from Xiaomi. They all can communicate and help user.</p>
+<h2 id="what-is-machine-learning">What is Machine Learning</h2>
+<p>For example, you can predict the time cost from your school to your home, from your experience. If there it is a rainy day, 20 minutes more, if it is a Monday, 10 minutes more.</p>
+<p>We could image this as a <strong>decision tree</strong>. and the decision tree is a type of Machine Learning <strong>model</strong>.</p>
+<p><strong>Machine Learning</strong> is a Statics method, the computer will user the data that are known, get one or more type of model, and it will use these to predict the result. By the enhance the experience, the result will be better.</p>
+<h2 id="what-is-deep-learning">What is Deep Learning</h2>
+<p>Deep learning is the deep neural networks, theoretically, many Neurons can 100% imitate the human brain.</p>
+<h2 id="history">History</h2>
+<p>1943 MP born</p>
+<p>1949 Hebb</p>
+<p>1958 Perception, <strong>First rise</strong></p>
+<p>1969 ‘AI winter’</p>
+<p>1982 Hopfield</p>
+<p>1986 BP, <strong>Second rise</strong></p>
+<p>1996 SVM</p>
+<p>2006 DBN</p>
+<p>2012 CNN, <strong>Third rise</strong></p>
+<h2 id="example">Example</h2>
+<p>Predict and Classify</p>
+<p>Predict the price of house, y = ax+b, with the data of area and price.</p>
+<p>Classify the tumor is benign or malignant</p>
+<h2 id="summary">Summary</h2>
+<p>AI is the way that use machine to imitate human’s consciousness and thinking.</p>
+<p>ML is the way to achieve the AI, the subset of AI</p>
+<p>DL is the Deep neural network, is the way to achieve ML, the subset of ML</p>
+<p>Three main element of ML is algorithm, computer power and data.</p>
+<h1 id="2-install">2. Install</h1>
+<p>pip install is the best!</p>
+<p>Notice: For Windows, python 3.6(?) and python 3.7 is not supported.</p>
 
                 
 
@@ -223,12 +256,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/article/Tkinter-Messagebox/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Messagebox">&larr; Previous Post</a>
+                            <a href="/article/Tensorflow-3-1-Frame-Tensor-Graph-Session/" data-toggle="tooltip" data-placement="top" title="[Tensorflow] 2.Tensorlow Frame">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/article/Tkinter-Menubar/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Menubar">Next Post &rarr;</a>
+                            <a href="/article/Tkinter-Pack-Grid-Place/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Pack&Grid&Place">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -323,7 +356,7 @@
                        
                           <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
-                          <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
+                          <a class="tag" href="/tags/#Tensorflow" title="Tensorflow">Tensorflow</a>
                         
                     </div>
                 </section>
