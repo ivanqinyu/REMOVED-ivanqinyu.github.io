@@ -144,14 +144,14 @@
 
                         
                         <li>
-                            <a href="/about/">About 关于我</a>
+                            <a href="/archive/">Archive 文章总览</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archive 文章总览</a>
+                            <a href="/about/">About 关于我</a>
                         </li>
                         
                     
@@ -261,7 +261,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_1.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a=tf.constant([<span class="number">1.0</span>],[<span class="number">2</span>,<span class="number">0</span>])</span><br><span class="line">b=tf.constant([<span class="number">3.0</span>],[<span class="number">4.0</span>])</span><br><span class="line">result = a + b</span><br><span class="line"><span class="keyword">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># RESULT: (The results are not given directly, but only in the form of the results.)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Tensor("add:0",shape=(2,),dtype=float32)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># "add" ----node name</span></span><br><span class="line"><span class="comment"># "0" ---- the order number of output</span></span><br><span class="line"><span class="comment"># shape ---- the dimension</span></span><br><span class="line"><span class="comment"># (2,) ---- One dimension with length 2</span></span><br><span class="line"><span class="comment"># dtype ---- data type</span></span><br></pre></td></tr></table></figure>
 <h3 id="graph">Graph</h3>
 <p><strong>Graph only build the calculation step, not to do any calculation.</strong></p>
-<p><img src="graph.PNG" alt="graph"></p>
+<p><img src="./graph.PNG" alt="graph"></p>
 <p><strong>y = XW = x1 * w1+x2 * w2</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_2.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">x=tf.constant([[<span class="number">1.0</span>,<span class="number">2.0</span>]])</span><br><span class="line">w=tf.constant([[<span class="number">3.0</span>],[<span class="number">4.0</span>]])</span><br><span class="line">y=tf.matmul(x,w)</span><br><span class="line"><span class="keyword">print</span> y</span><br><span class="line"></span><br><span class="line"><span class="comment"># RESULT:</span></span><br><span class="line"><span class="comment"># Tensor("matmul:0",shape(1,1),dtype=float32)</span></span><br><span class="line"><span class="comment"># matmul is matrix mutiple</span></span><br></pre></td></tr></table></figure>
 <h3 id="session">Session</h3>
