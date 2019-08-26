@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/Tensorflow-3-2-Forward-propagation/</loc>
+        <lastmod>2019-08-26T08:50:31.156Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/Tensorflow-3-1-Frame-Tensor-Graph-Session/</loc>
         <lastmod>2019-08-19T07:02:16.597Z</lastmod>
         <changefreq>weekly</changefreq>
