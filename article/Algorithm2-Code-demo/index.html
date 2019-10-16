@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Tensorflow] 3.2 Forward propagation - ivanqinyu 秦禹
+          [Algorithm2] Part 1 review with code - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tensorflow-3-2-Forward-propagation/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Algorithm2-Code-demo/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,16 +88,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
+                            
                               <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
-                              <a class="tag" href="/tags/#Tensorflow" title="Tensorflow">Tensorflow</a>
-                            
                         </div>
-                        <h1>[Tensorflow] 3.2 Forward propagation</h1>
-                        <h2 class="subheading">Tensorflow note</h2>
+                        <h1>[Algorithm2] Part 1 review with code</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Ivan Qin on
-                            2019-08-20
+                            2019-10-16
                         </span>
                     </div>
                 
@@ -214,33 +214,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="variable">Variable</h1>
-<ul>
-<li>Variable: In tensorflow, the variable is the weigh( W ), random as default.</li>
-</ul>
-<p><img src="./graph.PNG" alt="graph"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">w=tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">2</span>,mean=<span class="number">0</span>,seed=<span class="number">1</span>))</span><br><span class="line"><span class="comment"># random_normal - normal distribution</span></span><br><span class="line"><span class="comment"># [2,3] - 2*3 matrix</span></span><br><span class="line"><span class="comment"># stddev - stand deviation = 2</span></span><br><span class="line"><span class="comment"># mean - mean</span></span><br><span class="line"><span class="comment"># seed - random seed, if it is removed, the data will be different in different run time.</span></span><br><span class="line"></span><br><span class="line">tf.truncated_normal() </span><br><span class="line"><span class="comment"># remove the data that too big or small</span></span><br><span class="line">tf.random_uniform()</span><br><span class="line"><span class="comment"># mean distribution</span></span><br><span class="line"></span><br><span class="line">tf.zeros([<span class="number">3</span>,<span class="number">2</span>],int32) <span class="comment">#[3,2] size</span></span><br><span class="line"><span class="comment">#[[0,0],[0,0],[0,0]]</span></span><br><span class="line">tf.ones([<span class="number">3</span>,<span class="number">2</span>],int32) <span class="comment"># int 32 data type</span></span><br><span class="line"><span class="comment">#[[1,1],[1,1],[1,1]]</span></span><br><span class="line">tf.fill([<span class="number">3</span>,<span class="number">2</span>],<span class="number">6</span>)</span><br><span class="line"><span class="comment">#[[6,6],[6,6],[6,6]]</span></span><br><span class="line">tf.constant([<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line"><span class="comment">#[3,2,1]</span></span><br></pre></td></tr></table></figure>
-<h1 id="the-procedure-of-neural-network">The procedure of neural network</h1>
-<ol>
-<li>
-<p>Prepare the data set, get the feature, feed data into the neural network.</p>
-</li>
-<li>
-<p>Forward propagation, build the NN structure, from the input to output(build the graph and execute the session)</p>
-<p>NN forward propagation - &gt; output</p>
-</li>
-<li>
-<p>Feed lots of feature data into neural network, iterative optimize the NN variable.</p>
-<p>NN backward propagation -&gt; get the variable model</p>
-</li>
-<li>
-<p>Use the well-trained model to predict and classify</p>
-</li>
-</ol>
-<h1 id="forward-propagation">Forward propagation</h1>
-<p>The forward propagation - &gt; building the model, implementing reasoning (e.g. Fully Connected Neural Network)</p>
-<p>e.g. Produce a mount of element, with length x1, weight x2, input feature in NN, get the data by NN.</p>
-<p><img src=".%5Cgraph.jpg" alt=""></p>
+                <h1 id="algorithm-ii-review-for-the-second-year-part-1">Algorithm II review for the second year part 1</h1>
+<h2 id="algorithm-greedy-schedule">Algorithm Greedy schedule</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Greedy Schedule</span></span><br><span class="line"><span class="comment">#Input an array of n requests</span></span><br><span class="line"><span class="comment">#Output A maximum compatible subset of R</span></span><br><span class="line"><span class="comment">#sort the end, always choosing the lastf</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greedy</span><span class="params">(start,end)</span>:</span></span><br><span class="line">    k=<span class="number">0</span></span><br><span class="line">    lastf=<span class="number">-1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(start)):</span><br><span class="line">        <span class="keyword">if</span> (start[i]&gt;=lastf):</span><br><span class="line">            k=k+<span class="number">1</span></span><br><span class="line">            print(<span class="string">'('</span>,start[i],<span class="string">','</span>,end[i],<span class="string">")"</span>)</span><br><span class="line">            lastf=end[i]</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort</span><span class="params">(start,end)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(end)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i,len(end)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> (end[i]&gt;end[j]):</span><br><span class="line">                end[i],end[j]=end[j],end[i]</span><br><span class="line">                start[i],start[j]=start[j],start[i]</span><br><span class="line">    <span class="keyword">return</span> (start,end)</span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    start = [<span class="number">0</span>,<span class="number">5</span>,<span class="number">15</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">38</span>,<span class="number">45</span>]</span><br><span class="line">    end = [<span class="number">30</span>,<span class="number">20</span>,<span class="number">55</span>,<span class="number">25</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>]</span><br><span class="line"></span><br><span class="line">    start,end=sort(start,end)</span><br><span class="line">    </span><br><span class="line">    print(greedy(start,end))</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -248,13 +224,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Algorithm2-Code-demo/" data-toggle="tooltip" data-placement="top" title="[Algorithm2] Part 1 review with code">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/Tensorflow-3-1-Frame-Tensor-Graph-Session/" data-toggle="tooltip" data-placement="top" title="[Tensorflow] 3.1 Frame Tensor&Graph&Session">Next Post &rarr;</a>
+                            <a href="/article/Tensorflow-3-2-Forward-propagation/" data-toggle="tooltip" data-placement="top" title="[Tensorflow] 3.2 Forward propagation">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -347,9 +319,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                          <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
                         
-                          <a class="tag" href="/tags/#Tensorflow" title="Tensorflow">Tensorflow</a>
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                     </div>
                 </section>

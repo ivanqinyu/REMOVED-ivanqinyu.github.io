@@ -23,15 +23,22 @@
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/tags/Python/</loc>
+        <loc>http://www.ivanqinyu.github.io/tags/Tensorflow/</loc>
         <lastmod>2019-08-26T08:51:53.680Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/tags/Tensorflow/</loc>
-        <lastmod>2019-08-26T08:51:53.680Z</lastmod>
+        <loc>http://www.ivanqinyu.github.io/tags/Algorithm/</loc>
+        <lastmod>2019-10-16T22:21:32.882Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/tags/Python/</loc>
+        <lastmod>2019-10-16T22:21:32.882Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
