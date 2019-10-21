@@ -88,9 +88,9 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
-                            
                               <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                            
+                              <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
                             
                         </div>
                         <h1>[Algorithm2] Part 1 review with code</h1>
@@ -225,13 +225,272 @@
 <p><strong>Time analysis</strong>: The sort part will cost O(n log (n)) time at least, the greedy will cost O (n), so in general, it will cost O(n log(n)).</p>
 <h3 id="proof">Proof</h3>
 <h4 id="1proof-that-the-output-is-a-compatible-subset-of-r">1.Proof that the output is a compatible subset of R</h4>
-<p>Intuitively: A was compatible at the start of the iteration, and the set we’ve added doesn’t break compatibility because s ≥ lastf and lastf is the latest finish time already in A.</p>
-<p>Formalize this via loop invariant – at the start of the i’th iteration of 3-5.</p>
+<p><strong>Intuitively</strong>: A was compatible at the start of the iteration, and the set we’ve added doesn’t break compatibility because s ≥ lastf and lastf is the latest finish time already in A.</p>
+<p><strong>Formalize</strong> this via loop invariant – at the start of the i’th iteration of 3-5.</p>
 <ul>
-<li>Set A contains a compatible subset {(s1, f1), ……, (s~t~, f~t~) } of R</li>
+<li>Set A contains a compatible subset {(s~1~, f~1~), ……, (s~t~, f~t~) } of R</li>
 <li>lastf = max({0}∪{f~j~: j ≤ t })</li>
 </ul>
-<h4 id="2proof-that-the-output-is-a-compatible-subset-of-r">2.Proof that the output is a compatible subset of R:</h4>
+<p>We show by induction that at the start of the i’th iteration of 4-7.</p>
+<ul>
+<li>Set A contains a compatible subset {(s~1~, f~1~), ……, (s~t~, f~t~) } of R</li>
+<li>lastf = max({0}∪{f~j~: j ≤ t })</li>
+</ul>
+<p><strong>Base case (i=0) :</strong> Immediate because A=[]</p>
+<p><strong>Induction step :</strong> A was compatible at the start of iteration, and if we append a pair (s~i~, f~i~) to A then s ≥ lastf ≥ f~j~ for all j≤t. So (s~i~, f~i~) is compatible with A.</p>
+<h4 id="2proof-that-the-output-is-maximum">2.Proof that the output is maximum:</h4>
+<p><strong>Intuitively</strong>: Greedy Schedule “stays ahead” of max compatible set</p>
+<p><strong>Formalize</strong> this via loop invariant, at the start of the i’th iteration of 3-5, write A=[(s~1~, f~1~), ……, (s~ti~, f~ti~)] where f~1~&lt;…&lt;f~ti~.</p>
+<p>We claim: for all maximum compatible subsets S = {(s’~1~, f’~1~), ……, (s’~t~, f’~t~)} we have f1≤f’~1~, …, f~ti~≤f’~ti~</p>
+<p><strong>Base case (i=0) :</strong> Immediate since A=[]</p>
+<p><strong>Induction step :</strong> We know f1≤f’~1~, …, f~ti~≤f’~ti~ by induction. We have s’~ti+1~≥f’~ti~≥f~ti~ , so (s’~ti+1~, f’~ti+1~) is compatible with A. So the pair (<em>s</em>~i+1~, <em>f</em>~i+1~) we considering must have <em>f</em>~i+1~≤f~ti+1~. So whether we add it or not, the induction hypothesis stays true.</p>
+<p>Suppose that t=|A|&lt;|S|=L at step 6 (Return).<br>
+Then we have s’~t+1~ ≥ f’~t~ ≥ f~t~, so (s’~ti+1~, f’~ti+1~)  should have been added to A when we considered it. Contradiction.</p>
+<p>Greedy algorithms are not unique, and may fail!</p>
+<h1 id="graph-i-euler-walks">Graph I: Euler walks</h1>
+<h2 id="definition">DEFINITION:</h2>
+<p><strong>(graph)</strong>: A graph is a pair G  = (V, E), where V = V(G) is a set of vertices and E = E(G) is a set of edges contained in { {u,v} : u,v ∈V, u ≠ v}</p>
+<p><strong>(walk)</strong>: A walk in graph G = (V, E) is a sequence of vertices v~0~,v~1~, … ,v~k~ such that {v~i~, v~i+1~}∈E for all i ≤ k-1.</p>
+<p><strong>(form to; length)</strong>: We say the walk is from v~0~ to v~k~ and call k the length of the walk.</p>
+<p><strong>(Euler walk)</strong>: An Euler walk is one which contains every edge in G exactly once.</p>
+<p><strong>(equal)</strong>: Two graphs G~1~ = (V~1~, E~1~) and G~2~ = (V~2~, E~2~) are equal, written G~1~ = G~2~,<br>
+if V~1~ = V~2~ and E~1~ = E~2~.</p>
+<p><strong>(isomorphic)</strong>: G~1~ and G~2~ are isomorphic, written G~1~ ≌ G~2~, if there’s a bijection<br>
+f : V~1~ → V~2~ such that {f (u), f (v)} ∈ E~2~ if and only if {u, v} ∈ E~1~.</p>
+<p><strong>(neighbourhood)</strong>: In a graph G = (V, E), the neighbourhood of a vertex v is the set of vertices joined to v by an edge.</p>
+<p>Formally: N~G~ (v) = {w ∈ V : {v,w} ∈ E}.</p>
+<p>Also, for all sets of vertices X ⊆ V, we write N~G~(X) = ∪~v∈X~ N~G~ (v).</p>
+<p><strong>(degree)</strong>: The degree of a vertex v is the number of vertices joined to v. Formally:<br>
+d~G~ (v) = |N~G~ (v)|.</p>
+<hr>
+<p><strong>Theorem of Euler walk</strong>: If G has an Euler walk, then either:</p>
+<ul>
+<li>every vertex of G has even degree; or</li>
+<li>all but two vertices v~0~ and v~k~ have even degree, and any Euler walk<br>
+must have v~0~ and v~k~ as endpoints.</li>
+</ul>
+<p><strong>proof of “if”</strong>: any walk with v~0~ = v~k~ uses an even number of edges from<br>
+every vertex, since it leaves each vertex immediately after entering.<br>
+Similarly, any walk with v~0~≠v~k~ uses an odd number of edges from v~0~ and<br>
+v~k~ , and an even number from any other vertex.</p>
+<p><strong>proof of “only if”</strong> (case (i)): Suppose G is connected, v ∈ V, and every vertex of G has even degree.</p>
+<p>Form a walk W = w~0~ . . .w~k~ as follows:</p>
+<ul>
+<li>take w~0~ = v;</li>
+<li>take w~i~ to be an arbitrary neighbour of w~i−1~ such that {w~i−1~,w~i~} is not already a W-edge;</li>
+<li>stop when N(w~i~) ⊆ {w~0~, . . . ,w~i−1~}</li>
+</ul>
+<p>This need not give an Euler walk…<br>
+But it still gives us something.<br>
+Claim: w~k~ = w~0~ = v.<br>
+<strong>Proof</strong>: For a vertex x, how many W-edges are incident to x?</p>
+<ul>
+<li>Two for each time x appears in {w~1~, . . . ,w~k−1~};</li>
+<li>Plus one if x = w~0~;</li>
+<li>Plus one if x = w~k~ .<br>
+We know w~k~ has d(w~k~) W-edges, and d(w~k~ ) is even, so w~0~ = w~k~ .</li>
+</ul>
+<p><strong>Idea</strong>: Strong induction on |E|.<br>
+<strong>Base case</strong>: |E| = 0, immediate.<br>
+<strong>Induction step</strong>: Apply induction hypothesis to find Euler walks W~i~ for all non-empty components C~i~ of the subgraph G − W formed by removing W ’s edges from G:<br>
+Each vertex has even degree in both W and G, and hence also in G − W .<br>
+Each component C~i~ is connected by definition.<br>
+<strong>Idea</strong>: “Walk along W until we hit C~1~, then follow W~1~, then go back to W , and so on.”<br>
+G connected ⇒ there is a path P~i~ from v to each C~i~. Let v~i~ be the first vertex in C~i~ on P~i~.<br>
+Then some edge incident to vi must have been removed in G − W , or the vertex before v~i~ on P~i~ would have been part of C~i~.<br>
+So v~i~ ∈W.<br>
+We have found vertices v~i~ which lie in both C~i~ and W .<br>
+Wlog, if G has r non-trivial components, W reaches first v~1~, then v~2~, and so on up to v~r~. (Otherwise we can just reorder C~1~, . . . , C~r~.)<br>
+So our idea works! We follow W until reaching v1, then follow all of W1 (returning to v1), then follow W until reaching v2, and so on.</p>
+<p><strong>proof of “only if”</strong>: Suppose u ≠ v, d(u) and d(v) are odd, and every other degree is even.<br>
+Form a new graph, G’, by adding a new vertex w and edges from u to w<br>
+and w to v. Then every vertex of G’ has even degree, so G’ contains an<br>
+Euler walk W starting and ending at u by part (i).<br>
+Then we remove the subpath uwv from W , which turns it into an Euler<br>
+walk from u to v in G.</p>
+<hr>
+<p>Does every graph satisfying (i) or (ii) have an Euler walk?<br>
+No, the graph doesn’t contain a Euler walk if the graph is not <u><strong>connected.</strong></u></p>
+<p><strong>(path)</strong>: path is a walk in which no vertices repeat.</p>
+<p><strong>(connected)</strong>: A graph is connected if any two vertices are joined by a path.</p>
+<p>Let G = (V, E) be a graph.<br>
+<strong>(subgraph)</strong>: A subgraph H = (V~H~, E~H~) of G is a graph with V~H~ ⊆ V and E~H~ ⊆ E.<br>
+<strong>(induced subgraph)</strong>: H is an induced subgraph if V~H~ ⊆ V and E~H~ = {e ∈ E : e ⊆ V~H~}.<br>
+<strong>(induced)</strong>: For all vertex sets X ⊆ V, the graph induced by X is G[X] = (X, {e ∈ E : e ⊆ X}).</p>
+<p><strong>(component)</strong>: A component H of G is a maximal connected induced subgraph of G.</p>
+<h1 id="graph-ii-directed-graph-and-hamilton-cycle">Graph II: Directed graph and Hamilton cycle</h1>
+<p><strong>(digraph)</strong>: A directed graph (or digraph) is a pair G = (V, E), where V is a set of vertices and E is a set of edges contained in {<strong>(u, v)</strong> : u, v ∈ V, u ≠ v} }. <strong>Notice: Here in diagraph is “(” , “)”</strong></p>
+<p><strong>(walk in digraph)</strong>: A walk in a digraph G is defined in (almost) the same way as in a graph: a sequence of vertices w~0~ . . .w~k~ with (w~i~,w~i+1~) ∈ E for all i ≤ k − 1.</p>
+<p><strong>(path in diagraph)</strong>: A path is a walk with no repeated vertices.</p>
+<p><strong>(Euler walk in diagraph)</strong>: an Euler walk is a walk which uses every edge in the graph exactly once.</p>
+<p><strong>(strongly connected)</strong>: G is strongly connected if for all u, v ∈ V, there is a path from u to v and from v to u.</p>
+<p><strong>(weakly connected)</strong>: G is weakly connected if for all u, v ∈ V, there is a path from u to v or from v to u.</p>
+<p><strong>(strong/weak components)</strong>: As with graphs, strong components (resp. weak components) of digraphs are maximal strongly (resp. weakly) connected subgraphs.</p>
+<p>A digraph definitely can’t have an Euler walk if it’s not weakly connected!<br>
+And it can’t have one <strong>with equal endpoints</strong> if it’s not strongly connected.</p>
+<p><strong>(neighbourhood in diagraph)</strong>: As with undirected graphs, the neighbourhood N(v) of a vertex v is the set of edges it’s adjacent to,</p>
+<p><strong>(degree in diagraph)</strong>: its degree d(v) is the number of edges it’s in.</p>
+<p><strong>(in/out-neighbourhood)</strong>: We define the in-neighbourhood N~−(v)~ and the out-neighbourhood N~+(v)~ of a vertex v by</p>
+<p>N~−(v)~ = {(u, v) ∈ E(G): u ∈ V(G)},<br>
+N~+(v)~ = {(v,w) ∈ E(G): w ∈ V(G)}.</p>
+<p><strong>(in/out degree)</strong>: The in-degree d~−(v)~ is |N~−(v)~|, and the out-degree d~+(v)~ is |N~+(v)~|.<br>
+Note that d(v) = d~−(v)~ + d~+(v)~.</p>
+<p>We have shown that if W is an Euler walk, for any vertex x, either:</p>
+<ul>
+<li>
+<p>x = w~0~ = w~k~ and d^+^(x) = d^−^(x); or</p>
+</li>
+<li>
+<p>x ∉ {w0, wk} and d^+^(x) = d^−^(x); or</p>
+</li>
+<li>
+<p>x = w~0~ ≠ w~k~ and d^+^(x) = d^−^(x) + 1; or</p>
+</li>
+<li>
+<p>x = w~k~ ≠ w~0~ and d^−^(x) = d^+^(x) + 1.</p>
+</li>
+<li>
+<p>d^+^(v) = d^−^(v) for all v ∈ V and w~0~ = w~k~ ; or</p>
+</li>
+<li>
+<p>d^−^(v) = d^+^(v) for all v ∉ {w~0~, w~k~}, d^+^(w~0~) = d^−^(w~0~) + 1, and d^−^(w~k~) = d^+^(w~k~) + 1. (So also w~0~ ≠ w~k~.)</p>
+</li>
+</ul>
+<p><strong>(cycle)</strong>: A cycle is a walk W = w~0~ . . .w~k~ with w~0~ = w~k~ and k ≥ 3, in which every vertex appears at most once except for w~0~ and w~k~ (which appear twice).<br>
+<strong>(Hamilton cycle)</strong>: A Hamilton cycle is a cycle containing every vertex in the graph.</p>
+<hr>
+<p><strong>(Dirac’s Theorem)</strong>: Any n-vertex graph G with minimum degree at least n/2 has a Hamilton cycle.</p>
+<p><strong>Proof</strong>: Try to find a long path inductively: start with a trivial one-vertex path and repeatedly extend it.<br>
+So suppose G contains a k-vertex path v~1~ . . . v~k~ for some k ∈ [n − 1].<br>
+<strong>Case 1: k ≤ n/2</strong>. Then our usual trick of greedy extension works!<br>
+We have d(v~k~) ≥ n/2 &gt; |{v~1~, . . . , v~k−1~}|.<br>
+So there’s a vertex v~k+1~ adjacent to v~k~ other than v~1~, . . . , v~k−1~.<br>
+Then v~1~ . . . v~k+1~ is a path of length k + 1.<br>
+<strong>Case 2: k &gt; n/2.</strong> Suppose G contains a k-vertex path v~1~ . . . v~k~ . Greedy extension may not work… but try anyway!<br>
+<strong>Case 2a: There exists a vertex v~k+1~ ∈ N(v~k~ ) \ {v~1~, . . . , v~k−1~}.</strong><br>
+Then v~1~ . . . v~k+1~ is a (k + 1)-vertex path.<br>
+<strong>Case 2b: There exists a vertex v~0~ ∈ N(v~k~) \ {v~2~, . . . , v~k~}.</strong><br>
+Then v~0~ . . . v~k~ is a (k + 1)-vertex path.<br>
+<strong>Case 2c: Both N(v~1~) ⊆ {v~2~, . . . , v~k~} and N(v~k~ ) ⊆ {v~1~, . . . , v~k−1~}.</strong><br>
+In this case, we use the fact that greedy extension fails to extend the path in another way.<br>
+<strong>In general</strong>: We seek v~i~ ∈ N(v~1~) such that v~i−1~ ∈ N(v~k~).<br>
+Then v~1~v~i~. . . v~k~ v~i−1~v~i−2~ . . . v~1~ will be a cycle on {v~1~, . . . , v~k~ }.<br>
+There are at least n/2 vertices v~i~ ∈ N(v~1~), hence at least n/2 vertices in {v~i−1~ : v~i~ ∈ N(v~1~)}. There are also at least n/2 vertices in N(v~k~).<br>
+Both sets are contained in {v~1~, . . . , v~k−1~}, which has size at most n − 1.<br>
+So they must intersect. <strong>This works even when k = n.</strong><br>
+So suppose G has a cycle v~1~ . . . v~k~ , with n/2 &lt; k &lt; n, and let v~k+1~ be an arbitrary vertex not in the cycle.<br>
+We have d(v~k+1~) ≥ n/2, and |{v~1~, . . . , v~k~ }| &gt; n/2, and the graph has n vertices. So v~k+1~ must be adjacent to some v~i~ on the cycle.<br>
+Then v~k+1~v~i~. . . v~k~ v~1~ . . . v~i−1~ is a (k + 1)-vertex path.</p>
+<h1 id="graph-iii-trees-and-miscellany">Graph III: Trees and miscellany</h1>
+<h2 id="definition">DEFINITION:</h2>
+<p><strong>(The Handshake Lemma)</strong>: For any graph G = (V, E), Σ~v∈V~ d(v) = 2|E|.</p>
+<p><strong>(Directed Handshake Lemma)</strong>: For any digraph G = (V, E), Σ~v∈V~d^+^(v) = Σ~v∈V~d^−^(v) = |E|.</p>
+<p><strong>Proof:</strong> All edges contain two vertices, and each vertex v is in d(v) edges. The idea of this proof is called double-counting.</p>
+<p><strong>(k-regular)</strong>: A graph is k-regular if every vertex has degree k (so cycles are 2-regular).</p>
+<p><strong>(forest and tree)</strong>: We define a forest to be a graph which contains no cycles, and a tree to be a connected graph with no cycles.</p>
+<p>(So the components of a forest are trees, and all trees are forests!)</p>
+<p>(A tree is a connected graph with no cycles)</p>
+<p><strong>Lemma1</strong>: If T = (V, E) is a tree, then any pair of vertices u, v ∈ V is joined by a <strong>unique</strong> path uTv in T.</p>
+<p><strong>Proof</strong>: T is connected, so there is a path P~1~ = x~0~ . . . x~k~ from u to v.<br>
+Suppose there is another path P~2~ = y~0~ . . . y~k~ from u to v.<br>
+Then P~1~ and P~2~ must diverge from each other and come back together.<br>
+Let I = min{i : x~i~ ≠ y~i~} be the point of divergence.<br>
+Let J = min{i &gt; I : x~i~ ∈ {y~i~, . . . , y~k~ } } be the point of remerging.<br>
+Let K be the corresponding point on P~2~, so y~K~ = x~J~ .<br>
+Then x~I−1~x~I~. . . x~J~ y~K−1~y~K−2~ . . . y~I−1~ is a cycle, so T is not a tree.</p>
+<p><strong>Lemma 2</strong>: Any n-vertex tree has n − 1 edges</p>
+<p><strong>Proof</strong>: We start by showing how to turn a tree T = (V, E) into a <strong>rooted</strong> tree,<br>
+let r ∈ V be arbitrary — this will be the <strong>root</strong>.<br>
+Every vertex v ≠  r has a unique path Pv from r to v by the lemma.<br>
+Direct its edges from r to v.<br>
+Because these paths are unique, every vertex other than r has in-degree 1, and r has in-degree 0.<br>
+So by the directed handshake lemma: |E| =Σ~v∈V~d^−^(v) = n − 1.</p>
+<p>In a <strong>rooted</strong> tree with root r:<br>
+<strong>(ancestor/descendant)</strong>: u is an ancestor of v (or v is a descendant) of u) if u is on P~v~.<br>
+<strong>(parent/child)</strong>: u is the parent of v (or v is a child of u) if u ∈ N^-^(v).<br>
+<strong>(level)</strong>: The first level L~0~ of T is {r}, and L~i+1~ = N^+^(L~i~).<br>
+<strong>(depth)</strong>: The depth of T is the number of non-empty levels<br>
+<strong>(leaf)</strong>: In any tree: a leaf is a degree-1 vertex.</p>
+<p><strong>Lemma 3</strong>: Any n-vertex tree T = (V, E) with n ≥ 2 has at least 2 leaves.</p>
+<p><strong>Proof</strong>: Let x be the number of leaves in T…<br>
+By the handshaking lemma, |E| =1/2 * Σ~v∈V~d(v). Also, |E| = n − 1.<br>
+Since T is connected and n ≥ 2, every vertex has degree at least 1.<br>
+So all non-leaves have degree at least 2, and Σ~v∈V~d(v) ≥ 2(n − x) + x.<br>
+Plugging this in gives |E| = n − 1 = 1/2 Σ~v∈V~d(v) ≥ n −x/2.<br>
+Solving for x gives x ≥ 2, so we’re done!</p>
+<p><strong>Lemma</strong>: The following are equivalent for an n-vertex graph T = (V, E):<br>
+(A) T is connected and has no cycles, i.e. is a tree;<br>
+(B) T has n − 1 edges and is connected;<br>
+© T has n − 1 edges and has no cycles;<br>
+(D) T has a unique path between any pair of vertices.</p>
+<p>We’ve already proved (A) ⇒ (D) (Lemma 1) as well as (A) ⇒ (B) and (A) ⇒© (Lemma 2).</p>
+<p>(D)⇒(A):</p>
+<p>T has a path between any pair of vertices, so it’s connected.<br>
+And on any cycle v~0~ . . . v~k~ , there are two different paths from v~0~ to v~k~ :</p>
+<ul>
+<li>the path v~0~ . . . v~k~ ; and</li>
+<li>the edge v~0~v~k~.</li>
+</ul>
+<p>So T has no cycles.</p>
+<p>©⇒(A):</p>
+<p>Suppose T has no cycles and components C~1~, . . . , C~r~.<br>
+Each of these components has no cycles, and is connected, so it’s a tree.<br>
+So by (A) ⇒ (B) (or Lemma 2), each C~i~ has |V(C~i~)| − 1 edges.<br>
+Every edge of T is in some C~i~, so |E| =Σ~i~(|V(C~i~)| − 1) = n − r.<br>
+But we know |E| = n − 1, so we must have r = 1.</p>
+<p>(B)⇒(A):</p>
+<p>We claim that if T = (V, E) is connected, and e ∈ E is on a cycle, then T − e is connected.<br>
+<strong>If e is not in P</strong>: Let a, b ∈ V. T is connected, so there’s a path P = x~0~ . . . x~k~ from a to b.<br>
+If P doesn’t contain e, P is also a path in T − e and we’re done.</p>
+<p><strong>If e is in P</strong>: Write e = {x~l~, x~l+1~}. Let C = y~0~ . . . y~l~ be a cycle in T containing e — without loss of generality we can take y~0~ = x~l~ and y~l~ = x~l+1~.</p>
+<p>We form a new graph T’ by repeatedly removing edges from cycles in T (in arbitrary order) until no more cycles remain.<br>
+Then T’ has no cycles, and the Claim implies it’s connected, so it’s a tree.<br>
+So by (A) ⇒ (B) (or Lemma 2), T’ has n − 1 edges.<br>
+But T also has n − 1 edges! So we must have T’ = T, and T never had any cycles to begin with.</p>
+<h1 id="matchings-i-augmenting-paths">Matchings I: Augmenting paths</h1>
+<h2 id="definition">DEFINITION</h2>
+<p><strong>(matching)</strong>: A matching in a graph is a collection of disjoint edges.</p>
+<p><strong>(perfect)</strong>: It is perfect if every vertex is contained in some matching edge.</p>
+<p><strong>(bipartite/bipartition)</strong>: A graph G = (V, E) is bipartite if V can be partitioned into disjoint sets A and B which contain no edges; these are a bipartition.</p>
+<p><strong>Lemma</strong>: G is bipartite if and only if it has no odd-length cycle.</p>
+<p><strong>Proof of “only if”</strong>: Suppose G has bipartition (A, B) and C = v~1~ . . . v~k~ is an odd cycle in G.<br>
+Wlog v~1~ ∈ A. Since A has no edges, this means v~2~ ∈ B.<br>
+Continuing the argument, v~i~ ∈ A if i is odd, and v~i~ ∈ B if i is even. In particular, v~k~ ∈ A. But v~1~ and v~k~ are adjacent, so this is a contradiction.</p>
+<p><strong>Proof of “if”</strong>:</p>
+<p><strong>(augmenting path)</strong>:Given a matching M in a bipartite graph G, an augmenting path P for M is a path in G which alternates between matching and non-matching<br>
+edges, and which begins and ends with unmatched vertices.<br>
+Formally, writing P = v~0~ . . . v~k~ , we require {v~i~, v~i+1~} ∈ M<br>
+for all odd i,{v~i~, v~i+1~} ∉M<br>
+for all even i, and<br>
+v~0~, v~k~ ∈∪~e∈M~e.</p>
+<p><strong>(switch)</strong>: If P is an augmenting path for M, we define Switch(M, P) = M − { {v~i~<br>
+, v~i+1~}: i is odd} ∪ { {v~i~, v~i+1~}: i is even}.</p>
+<p>Let U = V \∪~e∈M~ e be the set of vertices not matched by M.<br>
+<strong>Lemma</strong>: A path in G is augmenting for M if and only if it’s also a path<br>
+from U ∩ A to U ∩ B in D~G,M~.</p>
+<p><strong>Proof</strong>: G is bipartite, so any path’s vertices alternate between A and B.<br>
+Any augmenting path has an odd number of edges, so it must have one<br>
+endpoint in U ∩ A and one in U ∩ B.<br>
+Let P = v~0~ . . . v~k~ be any path in G with v~0~ ∈ U ∩ A, v~k~ ∈ U ∩ B.<br>
+We show P is augmenting for M iff it is also a path in D~G,M~.<br>
+G is bipartite ⇒ v~i~ ∈ A for all even i and v~i~ ∈ B for all odd i. So:<br>
+{v~i~, v~i+1~} ∈ M for all odd i ⇔ (v~i~, v~i+1~) ∈ E(D~G,M~) for all odd i;<br>
+{v~i~, v~i+1~} ∉ M for all even i ⇔ (v~i~, v~i+1~) ∈ E(D~G,M~) for all even i.</p>
+<p><strong>Invariant</strong>: At the start of the i th loop iteration, M is a matching with i − 1 edges. M can have at most |V|/2 edges in total, so MaxMatching outputs a matching with no augmenting paths.</p>
+<p><strong>(Berge’s Lemma)</strong>: M has no augmenting paths ⇒ M is maximum.</p>
+<h2 id="maximum-matching">Maximum Matching</h2>
+<p>O(|E||V|)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GFG</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,graph)</span>:</span></span><br><span class="line">        self.graph = graph</span><br><span class="line">        self.people = len(graph)</span><br><span class="line">        self.time = len(graph[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bpm</span><span class="params">(self,u,matchR,seen)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> range(self.time):</span><br><span class="line">            <span class="keyword">if</span> self.graph[u][v] <span class="keyword">and</span> seen[v]==<span class="keyword">False</span>:</span><br><span class="line">                seen[v]=<span class="keyword">True</span></span><br><span class="line">                print(matchR,<span class="string">'v='</span>,v,self.bpm(matchR[v],matchR,seen))</span><br><span class="line">                <span class="keyword">if</span> matchR[v] == <span class="number">-1</span> <span class="keyword">or</span> self.bpm(matchR[v],matchR,seen):</span><br><span class="line">                    matchR[v]=u</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxBPM</span><span class="params">(self)</span>:</span> </span><br><span class="line">        matchR = [<span class="number">-1</span>] * self.time </span><br><span class="line">        result = <span class="number">0</span> </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.people): </span><br><span class="line">            seen = [<span class="keyword">False</span>] * self.time  </span><br><span class="line">            <span class="keyword">if</span> self.bpm(i, matchR, seen): </span><br><span class="line">                result += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">bpGraph =[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]] </span><br><span class="line">  </span><br><span class="line">g = GFG(bpGraph) </span><br><span class="line">  </span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Maximum number of people that can get meeting is %d "</span> % g.maxBPM())</span><br></pre></td></tr></table></figure>
+<h1 id="matchings-ii-semimatchings-and-halls-theorem">Matchings II: Semimatchings and Hall’s Theorem</h1>
+<h2 id="definetion">DEFINETION</h2>
+<p><strong>(k-to-1 semimatching)</strong>: A k-to-1 semimatching in a bipartite graph G with bipartition (A, B) is a subgraph of G in which each vertex in A has degree at most k and each vertex in B has degree at most 1.</p>
+<p><strong>Problem</strong>: Given G and k ∈ N, find a maximum k-to-1 semimatching.</p>
+<p><strong>Idea</strong>: Reduce to finding a matching, then use MaxMatching</p>
+<p>Step 1: “Clone the people k times.” Form a bipartite graph G‘ with<br>
+Step 2: “Let the clones choose their chocolates.”<br>
+Step 3: “Murder the clones and take their chocolates.”</p>
+<p><strong>(Hall’s Theorem)</strong>:Theorem: A bipartite graph G = (V, E) with bipartition (A, B) has a perfect matching if and only if |A| = |B| and, for all X ⊆ A, |N(X)| ≥ |X|.</p>
+<p><strong>Proof</strong>:</p>
 
                 
 
@@ -334,9 +593,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
-                        
                           <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
                         
                     </div>
                 </section>
