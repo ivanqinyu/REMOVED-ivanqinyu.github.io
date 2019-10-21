@@ -144,13 +144,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archive 文章总览</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About 关于我</a>
                         </li>
                         
@@ -159,6 +152,13 @@
                         
                         <li>
                             <a href="/tags/">Tags 文章分类</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archive 文章总览</a>
                         </li>
                         
                     
@@ -214,7 +214,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="algorithm-ii-review-for-the-second-year-part-1">Algorithm II review for the second year part 1</h1>
+                <hr>
+<h1 id="algorithm-ii-review-for-the-second-year-part-1">Algorithm II review for the second year part 1</h1>
 <h2 id="defination">DEFINATION :</h2>
 <p><strong>(Request):</strong> A request is a pair of integers (s,f) with 0≤s≤f, and we call s is the start time, f is the end time.</p>
 <p><strong>(Compatible)</strong> A set A of requests is compatible if for all distinct (s, f) , (s’, f’)∈A, either s’≥f or s≥f’ ----that is, the request’ time intervals don’t overlap.</p>
@@ -247,6 +248,7 @@
 <p>Suppose that t=|A|&lt;|S|=L at step 6 (Return).<br>
 Then we have s’~t+1~ ≥ f’~t~ ≥ f~t~, so (s’~ti+1~, f’~ti+1~)  should have been added to A when we considered it. Contradiction.</p>
 <p>Greedy algorithms are not unique, and may fail!</p>
+<hr>
 <h1 id="graph-i-euler-walks">Graph I: Euler walks</h1>
 <h2 id="definition">DEFINITION:</h2>
 <p><strong>(graph)</strong>: A graph is a pair G  = (V, E), where V = V(G) is a set of vertices and E = E(G) is a set of edges contained in { {u,v} : u,v ∈V, u ≠ v}</p>
@@ -318,6 +320,7 @@ No, the graph doesn’t contain a Euler walk if the graph is not <u><strong>conn
 <strong>(induced subgraph)</strong>: H is an induced subgraph if V~H~ ⊆ V and E~H~ = {e ∈ E : e ⊆ V~H~}.<br>
 <strong>(induced)</strong>: For all vertex sets X ⊆ V, the graph induced by X is G[X] = (X, {e ∈ E : e ⊆ X}).</p>
 <p><strong>(component)</strong>: A component H of G is a maximal connected induced subgraph of G.</p>
+<hr>
 <h1 id="graph-ii-directed-graph-and-hamilton-cycle">Graph II: Directed graph and Hamilton cycle</h1>
 <p><strong>(digraph)</strong>: A directed graph (or digraph) is a pair G = (V, E), where V is a set of vertices and E is a set of edges contained in {<strong>(u, v)</strong> : u, v ∈ V, u ≠ v} }. <strong>Notice: Here in diagraph is “(” , “)”</strong></p>
 <p><strong>(walk in digraph)</strong>: A walk in a digraph G is defined in (almost) the same way as in a graph: a sequence of vertices w~0~ . . .w~k~ with (w~i~,w~i+1~) ∈ E for all i ≤ k − 1.</p>
@@ -381,6 +384,7 @@ So they must intersect. <strong>This works even when k = n.</strong><br>
 So suppose G has a cycle v~1~ . . . v~k~ , with n/2 &lt; k &lt; n, and let v~k+1~ be an arbitrary vertex not in the cycle.<br>
 We have d(v~k+1~) ≥ n/2, and |{v~1~, . . . , v~k~ }| &gt; n/2, and the graph has n vertices. So v~k+1~ must be adjacent to some v~i~ on the cycle.<br>
 Then v~k+1~v~i~. . . v~k~ v~1~ . . . v~i−1~ is a (k + 1)-vertex path.</p>
+<hr>
 <h1 id="graph-iii-trees-and-miscellany">Graph III: Trees and miscellany</h1>
 <h2 id="definition">DEFINITION:</h2>
 <p><strong>(The Handshake Lemma)</strong>: For any graph G = (V, E), Σ~v∈V~ d(v) = 2|E|.</p>
@@ -447,6 +451,7 @@ If P doesn’t contain e, P is also a path in T − e and we’re done.</p>
 Then T’ has no cycles, and the Claim implies it’s connected, so it’s a tree.<br>
 So by (A) ⇒ (B) (or Lemma 2), T’ has n − 1 edges.<br>
 But T also has n − 1 edges! So we must have T’ = T, and T never had any cycles to begin with.</p>
+<hr>
 <h1 id="matchings-i-augmenting-paths">Matchings I: Augmenting paths</h1>
 <h2 id="definition">DEFINITION</h2>
 <p><strong>(matching)</strong>: A matching in a graph is a collection of disjoint edges.</p>
@@ -481,6 +486,7 @@ G is bipartite ⇒ v~i~ ∈ A for all even i and v~i~ ∈ B for all odd i. So:<b
 <h2 id="maximum-matching">Maximum Matching</h2>
 <p>O(|E||V|)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GFG</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,graph)</span>:</span></span><br><span class="line">        self.graph = graph</span><br><span class="line">        self.people = len(graph)</span><br><span class="line">        self.time = len(graph[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bpm</span><span class="params">(self,u,matchR,seen)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> range(self.time):</span><br><span class="line">            <span class="keyword">if</span> self.graph[u][v] <span class="keyword">and</span> seen[v]==<span class="keyword">False</span>:</span><br><span class="line">                seen[v]=<span class="keyword">True</span></span><br><span class="line">                print(matchR,<span class="string">'v='</span>,v,self.bpm(matchR[v],matchR,seen))</span><br><span class="line">                <span class="keyword">if</span> matchR[v] == <span class="number">-1</span> <span class="keyword">or</span> self.bpm(matchR[v],matchR,seen):</span><br><span class="line">                    matchR[v]=u</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxBPM</span><span class="params">(self)</span>:</span> </span><br><span class="line">        matchR = [<span class="number">-1</span>] * self.time </span><br><span class="line">        result = <span class="number">0</span> </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.people): </span><br><span class="line">            seen = [<span class="keyword">False</span>] * self.time  </span><br><span class="line">            <span class="keyword">if</span> self.bpm(i, matchR, seen): </span><br><span class="line">                result += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">bpGraph =[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]] </span><br><span class="line">  </span><br><span class="line">g = GFG(bpGraph) </span><br><span class="line">  </span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Maximum number of people that can get meeting is %d "</span> % g.maxBPM())</span><br></pre></td></tr></table></figure>
+<hr>
 <h1 id="matchings-ii-semimatchings-and-halls-theorem">Matchings II: Semimatchings and Hall’s Theorem</h1>
 <h2 id="definetion">DEFINETION</h2>
 <p><strong>(k-to-1 semimatching)</strong>: A k-to-1 semimatching in a bipartite graph G with bipartition (A, B) is a subgraph of G in which each vertex in A has degree at most k and each vertex in B has degree at most 1.</p>
