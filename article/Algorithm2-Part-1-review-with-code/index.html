@@ -92,6 +92,8 @@
                             
                               <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
                             
+                              <a class="tag" href="/tags/#Graph Theory" title="Graph Theory">Graph Theory</a>
+                            
                         </div>
                         <h1>[Algorithm2] Part 1 review with code</h1>
                         <h2 class="subheading"></h2>
@@ -215,17 +217,17 @@
                 post-container">
 
                 <hr>
-<h1 id="algorithm-ii-review-for-the-second-year-part-1">Algorithm II review for the second year part 1</h1>
-<h2 id="defination">DEFINATION :</h2>
+<h1>Algorithm II review for the second year part 1</h1>
+<h2>DEFINATION :</h2>
 <p><strong>(Request):</strong> A request is a pair of integers (s,f) with 0≤s≤f, and we call s is the start time, f is the end time.</p>
 <p><strong>(Compatible)</strong> A set A of requests is compatible if for all distinct (s, f) , (s’, f’)∈A, either s’≥f or s≥f’ ----that is, the request’ time intervals don’t overlap.</p>
-<h2 id="algorithm-greedy-schedule">Algorithm Greedy schedule</h2>
-<h3 id="code-in-python">Code in python</h3>
+<h2>Algorithm Greedy schedule</h2>
+<h3>Code in python</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Greedy Schedule</span></span><br><span class="line"><span class="comment">#Input an array of n requests</span></span><br><span class="line"><span class="comment">#Output A maximum compatible subset of R</span></span><br><span class="line"><span class="comment">#sort the end, always choosing the lastf</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greedy</span><span class="params">(start,end)</span>:</span></span><br><span class="line">    k=<span class="number">0</span></span><br><span class="line">    lastf=<span class="number">-1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(start)):</span><br><span class="line">        <span class="keyword">if</span> (start[i]&gt;=lastf):</span><br><span class="line">            k=k+<span class="number">1</span></span><br><span class="line">            print(<span class="string">'('</span>,start[i],<span class="string">','</span>,end[i],<span class="string">")"</span>)</span><br><span class="line">            lastf=end[i]</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort</span><span class="params">(start,end)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(end)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i,len(end)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> (end[i]&gt;end[j]):</span><br><span class="line">                end[i],end[j]=end[j],end[i]</span><br><span class="line">                start[i],start[j]=start[j],start[i]</span><br><span class="line">    <span class="keyword">return</span> (start,end)</span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    start = [<span class="number">0</span>,<span class="number">5</span>,<span class="number">15</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">38</span>,<span class="number">45</span>]</span><br><span class="line">    end = [<span class="number">30</span>,<span class="number">20</span>,<span class="number">55</span>,<span class="number">25</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>]</span><br><span class="line"></span><br><span class="line">    start,end=sort(start,end)</span><br><span class="line">    </span><br><span class="line">    print(greedy(start,end))</span><br></pre></td></tr></table></figure>
-<h3 id="time-analysis">Time analysis</h3>
+<h3>Time analysis</h3>
 <p><strong>Time analysis</strong>: The sort part will cost O(n log (n)) time at least, the greedy will cost O (n), so in general, it will cost O(n log(n)).</p>
-<h3 id="proof">Proof</h3>
-<h4 id="1proof-that-the-output-is-a-compatible-subset-of-r">1.Proof that the output is a compatible subset of R</h4>
+<h3>Proof</h3>
+<h4>1.Proof that the output is a compatible subset of R</h4>
 <p><strong>Intuitively</strong>: A was compatible at the start of the iteration, and the set we’ve added doesn’t break compatibility because s ≥ lastf and lastf is the latest finish time already in A.</p>
 <p><strong>Formalize</strong> this via loop invariant – at the start of the i’th iteration of 3-5.</p>
 <ul>
@@ -239,7 +241,7 @@
 </ul>
 <p><strong>Base case (i=0) :</strong> Immediate because A=[]</p>
 <p><strong>Induction step :</strong> A was compatible at the start of iteration, and if we append a pair (s~i~, f~i~) to A then s ≥ lastf ≥ f~j~ for all j≤t. So (s~i~, f~i~) is compatible with A.</p>
-<h4 id="2proof-that-the-output-is-maximum">2.Proof that the output is maximum:</h4>
+<h4>2.Proof that the output is maximum:</h4>
 <p><strong>Intuitively</strong>: Greedy Schedule “stays ahead” of max compatible set</p>
 <p><strong>Formalize</strong> this via loop invariant, at the start of the i’th iteration of 3-5, write A=[(s~1~, f~1~), ……, (s~ti~, f~ti~)] where f~1~&lt;…&lt;f~ti~.</p>
 <p>We claim: for all maximum compatible subsets S = {(s’~1~, f’~1~), ……, (s’~t~, f’~t~)} we have f1≤f’~1~, …, f~ti~≤f’~ti~</p>
@@ -249,8 +251,8 @@
 Then we have s’~t+1~ ≥ f’~t~ ≥ f~t~, so (s’~ti+1~, f’~ti+1~)  should have been added to A when we considered it. Contradiction.</p>
 <p>Greedy algorithms are not unique, and may fail!</p>
 <hr>
-<h1 id="graph-i-euler-walks">Graph I: Euler walks</h1>
-<h2 id="definition">DEFINITION:</h2>
+<h1>Graph I: Euler walks</h1>
+<h2>DEFINITION:</h2>
 <p><strong>(graph)</strong>: A graph is a pair G  = (V, E), where V = V(G) is a set of vertices and E = E(G) is a set of edges contained in { {u,v} : u,v ∈V, u ≠ v}</p>
 <p><strong>(walk)</strong>: A walk in graph G = (V, E) is a sequence of vertices v~0~,v~1~, … ,v~k~ such that {v~i~, v~i+1~}∈E for all i ≤ k-1.</p>
 <p><strong>(form to; length)</strong>: We say the walk is from v~0~ to v~k~ and call k the length of the walk.</p>
@@ -321,7 +323,7 @@ No, the graph doesn’t contain a Euler walk if the graph is not <u><strong>conn
 <strong>(induced)</strong>: For all vertex sets X ⊆ V, the graph induced by X is G[X] = (X, {e ∈ E : e ⊆ X}).</p>
 <p><strong>(component)</strong>: A component H of G is a maximal connected induced subgraph of G.</p>
 <hr>
-<h1 id="graph-ii-directed-graph-and-hamilton-cycle">Graph II: Directed graph and Hamilton cycle</h1>
+<h1>Graph II: Directed graph and Hamilton cycle</h1>
 <p><strong>(digraph)</strong>: A directed graph (or digraph) is a pair G = (V, E), where V is a set of vertices and E is a set of edges contained in {<strong>(u, v)</strong> : u, v ∈ V, u ≠ v} }. <strong>Notice: Here in diagraph is “(” , “)”</strong></p>
 <p><strong>(walk in digraph)</strong>: A walk in a digraph G is defined in (almost) the same way as in a graph: a sequence of vertices w~0~ . . .w~k~ with (w~i~,w~i+1~) ∈ E for all i ≤ k − 1.</p>
 <p><strong>(path in diagraph)</strong>: A path is a walk with no repeated vertices.</p>
@@ -385,8 +387,8 @@ So suppose G has a cycle v~1~ . . . v~k~ , with n/2 &lt; k &lt; n, and let v~k+1
 We have d(v~k+1~) ≥ n/2, and |{v~1~, . . . , v~k~ }| &gt; n/2, and the graph has n vertices. So v~k+1~ must be adjacent to some v~i~ on the cycle.<br>
 Then v~k+1~v~i~. . . v~k~ v~1~ . . . v~i−1~ is a (k + 1)-vertex path.</p>
 <hr>
-<h1 id="graph-iii-trees-and-miscellany">Graph III: Trees and miscellany</h1>
-<h2 id="definition">DEFINITION:</h2>
+<h1>Graph III: Trees and miscellany</h1>
+<h2>DEFINITION:</h2>
 <p><strong>(The Handshake Lemma)</strong>: For any graph G = (V, E), Σ~v∈V~ d(v) = 2|E|.</p>
 <p><strong>(Directed Handshake Lemma)</strong>: For any digraph G = (V, E), Σ~v∈V~d^+^(v) = Σ~v∈V~d^−^(v) = |E|.</p>
 <p><strong>Proof:</strong> All edges contain two vertices, and each vertex v is in d(v) edges. The idea of this proof is called double-counting.</p>
@@ -452,8 +454,8 @@ Then T’ has no cycles, and the Claim implies it’s connected, so it’s a tre
 So by (A) ⇒ (B) (or Lemma 2), T’ has n − 1 edges.<br>
 But T also has n − 1 edges! So we must have T’ = T, and T never had any cycles to begin with.</p>
 <hr>
-<h1 id="matchings-i-augmenting-paths">Matchings I: Augmenting paths</h1>
-<h2 id="definition">DEFINITION</h2>
+<h1>Matchings I: Augmenting paths</h1>
+<h2>DEFINITION</h2>
 <p><strong>(matching)</strong>: A matching in a graph is a collection of disjoint edges.</p>
 <p><strong>(perfect)</strong>: It is perfect if every vertex is contained in some matching edge.</p>
 <p><strong>(bipartite/bipartition)</strong>: A graph G = (V, E) is bipartite if V can be partitioned into disjoint sets A and B which contain no edges; these are a bipartition.</p>
@@ -483,12 +485,12 @@ G is bipartite ⇒ v~i~ ∈ A for all even i and v~i~ ∈ B for all odd i. So:<b
 {v~i~, v~i+1~} ∉ M for all even i ⇔ (v~i~, v~i+1~) ∈ E(D~G,M~) for all even i.</p>
 <p><strong>Invariant</strong>: At the start of the i th loop iteration, M is a matching with i − 1 edges. M can have at most |V|/2 edges in total, so MaxMatching outputs a matching with no augmenting paths.</p>
 <p><strong>(Berge’s Lemma)</strong>: M has no augmenting paths ⇒ M is maximum.</p>
-<h2 id="maximum-matching">Maximum Matching</h2>
+<h2>Maximum Matching</h2>
 <p>O(|E||V|)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GFG</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,graph)</span>:</span></span><br><span class="line">        self.graph = graph</span><br><span class="line">        self.people = len(graph)</span><br><span class="line">        self.time = len(graph[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bpm</span><span class="params">(self,u,matchR,seen)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> range(self.time):</span><br><span class="line">            <span class="keyword">if</span> self.graph[u][v] <span class="keyword">and</span> seen[v]==<span class="keyword">False</span>:</span><br><span class="line">                seen[v]=<span class="keyword">True</span></span><br><span class="line">                print(matchR,<span class="string">'v='</span>,v,self.bpm(matchR[v],matchR,seen))</span><br><span class="line">                <span class="keyword">if</span> matchR[v] == <span class="number">-1</span> <span class="keyword">or</span> self.bpm(matchR[v],matchR,seen):</span><br><span class="line">                    matchR[v]=u</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxBPM</span><span class="params">(self)</span>:</span> </span><br><span class="line">        matchR = [<span class="number">-1</span>] * self.time </span><br><span class="line">        result = <span class="number">0</span> </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(self.people): </span><br><span class="line">            seen = [<span class="keyword">False</span>] * self.time  </span><br><span class="line">            <span class="keyword">if</span> self.bpm(i, matchR, seen): </span><br><span class="line">                result += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">bpGraph =[[<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], </span><br><span class="line">          [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]] </span><br><span class="line">  </span><br><span class="line">g = GFG(bpGraph) </span><br><span class="line">  </span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Maximum number of people that can get meeting is %d "</span> % g.maxBPM())</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="matchings-ii-semimatchings-and-halls-theorem">Matchings II: Semimatchings and Hall’s Theorem</h1>
-<h2 id="definetion">DEFINETION</h2>
+<h1>Matchings II: Semimatchings and Hall’s Theorem</h1>
+<h2>DEFINETION</h2>
 <p><strong>(k-to-1 semimatching)</strong>: A k-to-1 semimatching in a bipartite graph G with bipartition (A, B) is a subgraph of G in which each vertex in A has degree at most k and each vertex in B has degree at most 1.</p>
 <p><strong>Problem</strong>: Given G and k ∈ N, find a maximum k-to-1 semimatching.</p>
 <p><strong>Idea</strong>: Reduce to finding a matching, then use MaxMatching</p>
@@ -602,6 +604,8 @@ Step 3: “Murder the clones and take their chocolates.”</p>
                           <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                           <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
+                        
+                          <a class="tag" href="/tags/#Graph Theory" title="Graph Theory">Graph Theory</a>
                         
                     </div>
                 </section>

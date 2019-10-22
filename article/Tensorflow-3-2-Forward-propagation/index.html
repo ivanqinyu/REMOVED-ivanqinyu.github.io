@@ -214,13 +214,13 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="variable">Variable</h1>
+                <h1>Variable</h1>
 <ul>
 <li>Variable: In tensorflow, the variable is the weigh( W ), random as default.</li>
 </ul>
 <p><img src="./graph.PNG" alt="graph"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">w=tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">2</span>,mean=<span class="number">0</span>,seed=<span class="number">1</span>))</span><br><span class="line"><span class="comment"># random_normal - normal distribution</span></span><br><span class="line"><span class="comment"># [2,3] - 2*3 matrix</span></span><br><span class="line"><span class="comment"># stddev - stand deviation = 2</span></span><br><span class="line"><span class="comment"># mean - mean</span></span><br><span class="line"><span class="comment"># seed - random seed, if it is removed, the data will be different in different run time.</span></span><br><span class="line"></span><br><span class="line">tf.truncated_normal() </span><br><span class="line"><span class="comment"># remove the data that too big or small</span></span><br><span class="line">tf.random_uniform()</span><br><span class="line"><span class="comment"># mean distribution</span></span><br><span class="line"></span><br><span class="line">tf.zeros([<span class="number">3</span>,<span class="number">2</span>],int32) <span class="comment">#[3,2] size</span></span><br><span class="line"><span class="comment">#[[0,0],[0,0],[0,0]]</span></span><br><span class="line">tf.ones([<span class="number">3</span>,<span class="number">2</span>],int32) <span class="comment"># int 32 data type</span></span><br><span class="line"><span class="comment">#[[1,1],[1,1],[1,1]]</span></span><br><span class="line">tf.fill([<span class="number">3</span>,<span class="number">2</span>],<span class="number">6</span>)</span><br><span class="line"><span class="comment">#[[6,6],[6,6],[6,6]]</span></span><br><span class="line">tf.constant([<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>])</span><br><span class="line"><span class="comment">#[3,2,1]</span></span><br></pre></td></tr></table></figure>
-<h1 id="the-procedure-of-neural-network">The procedure of neural network</h1>
+<h1>The procedure of neural network</h1>
 <ol>
 <li>
 <p>Prepare the data set, get the feature, feed data into the neural network.</p>
@@ -237,7 +237,7 @@
 <p>Use the well-trained model to predict and classify</p>
 </li>
 </ol>
-<h1 id="forward-propagation">Forward propagation</h1>
+<h1>Forward propagation</h1>
 <p>The forward propagation - &gt; building the model, implementing reasoning (e.g. Fully Connected Neural Network)</p>
 <p>e.g. Produce a mount of element, with length x1, weight x2, input feature in NN, get the data by NN.</p>
 <p><img src=".%5Cgraph.jpg" alt=""></p>

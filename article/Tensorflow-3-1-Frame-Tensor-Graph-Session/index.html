@@ -214,10 +214,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="3-frame">3. Frame</h1>
-<h2 id="tensorampgraphampsession">Tensor&amp;Graph&amp;Session</h2>
+                <h1>3. Frame</h1>
+<h2>Tensor&amp;Graph&amp;Session</h2>
 <p>When use Tensorflow to build the NN (Neural Networks), the tensor will represent the data, the graph build the Neural Networks, the session is used to execute the graph and optimize the weights(Parameter), and get the model.</p>
-<h3 id="tensor">Tensor</h3>
+<h3>Tensor</h3>
 <table>
 <thead>
 <tr>
@@ -259,12 +259,12 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc  <span class="comment">#Write</span></span><br><span class="line">set ts=<span class="number">4</span>  <span class="comment"># tab space</span></span><br><span class="line">set nu   <span class="comment"># number line visible</span></span><br><span class="line"><span class="comment"># Esc, :wq</span></span><br></pre></td></tr></table></figure>
 <p><strong>DATA TYPE in tensorflow: tf.float32, tf.int32…</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_1.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a=tf.constant([<span class="number">1.0</span>],[<span class="number">2.0</span>])</span><br><span class="line">b=tf.constant([<span class="number">3.0</span>],[<span class="number">4.0</span>])</span><br><span class="line">result = a + b</span><br><span class="line"><span class="keyword">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># RESULT: (The results are not given directly, but only in the form of the results.)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Tensor("add:0",shape=(2,),dtype=float32)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># "add" ----node name</span></span><br><span class="line"><span class="comment"># "0" ---- the order number of output</span></span><br><span class="line"><span class="comment"># shape ---- the dimension</span></span><br><span class="line"><span class="comment"># (2,) ---- One dimension with length 2</span></span><br><span class="line"><span class="comment"># dtype ---- data type</span></span><br></pre></td></tr></table></figure>
-<h3 id="graph">Graph</h3>
+<h3>Graph</h3>
 <p><strong>Graph only build the calculation step, not to do any calculation.</strong></p>
 <p><img src="./graph.PNG" alt="graph"></p>
 <p><strong>y = XW = x1 * w1+x2 * w2</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_2.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">x=tf.constant([[<span class="number">1.0</span>,<span class="number">2.0</span>]])</span><br><span class="line">w=tf.constant([[<span class="number">3.0</span>],[<span class="number">4.0</span>]])</span><br><span class="line">y=tf.matmul(x,w)</span><br><span class="line"><span class="keyword">print</span> y</span><br><span class="line"></span><br><span class="line"><span class="comment"># RESULT:</span></span><br><span class="line"><span class="comment"># Tensor("matmul:0",shape(1,1),dtype=float32)</span></span><br><span class="line"><span class="comment"># matmul is matrix mutiple</span></span><br></pre></td></tr></table></figure>
-<h3 id="session">Session</h3>
+<h3>Session</h3>
 <p>If we want to get the final result we need session.</p>
 <p>Session executes node calculation in graph.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_2.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">	<span class="keyword">print</span> sess.run(y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.0*3.0 + 2.0*4.0 = [[ 11. ]]</span></span><br></pre></td></tr></table></figure>
