@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Tensorflow] 3.1 Frame Tensor&amp;Graph&amp;Session - ivanqinyu 秦禹
+          [LeetCode] 3. Longest Substring Without Repeating Characters - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tensorflow-3-1-Frame-Tensor-Graph-Session/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/LeetCode-3-Longest-Substring-Without-Repeating-Characters/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,14 +90,14 @@
                             
                               <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
-                              <a class="tag" href="/tags/#Tensorflow" title="Tensorflow">Tensorflow</a>
+                              <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
                             
                         </div>
-                        <h1>[Tensorflow] 3.1 Frame Tensor&amp;Graph&amp;Session</h1>
-                        <h2 class="subheading">Tensorflow note</h2>
+                        <h1>[LeetCode] 3. Longest Substring Without Repeating Characters</h1>
+                        <h2 class="subheading">Day 3 每日一题坚持坚持坚持</h2>
                         <span class="meta">
                             Posted by Ivan Qin on
-                            2019-08-15
+                            2019-10-30
                         </span>
                     </div>
                 
@@ -214,62 +214,23 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1>3. Frame</h1>
-<h2>Tensor&amp;Graph&amp;Session</h2>
-<p>When use Tensorflow to build the NN (Neural Networks), the tensor will represent the data, the graph build the Neural Networks, the session is used to execute the graph and optimize the weights(Parameter), and get the model.</p>
-<h3>Tensor</h3>
-<table>
-<thead>
-<tr>
-<th>Dimension</th>
-<th>Order</th>
-<th>name</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>Scalar</td>
-<td>s= 123</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>Vector</td>
-<td>v=[1,2,3]</td>
-</tr>
-<tr>
-<td>2</td>
-<td>2</td>
-<td>Matrix</td>
-<td>m=[[1,2,3],[4,5,6],[7,8,9]]</td>
-</tr>
-<tr>
-<td>n</td>
-<td>n</td>
-<td>Tensor</td>
-<td>t=[[[…]]]                  (n times ‘[]’)</td>
-</tr>
-</tbody>
-</table>
-<p>Tensor could represent 0 to n order of Array(List)</p>
-<p>We would use vim in most of time, so we can set the vim’s default setting:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.vimrc  <span class="comment">#Write</span></span><br><span class="line">set ts=<span class="number">4</span>  <span class="comment"># tab space</span></span><br><span class="line">set nu   <span class="comment"># number line visible</span></span><br><span class="line"><span class="comment"># Esc, :wq</span></span><br></pre></td></tr></table></figure>
-<p><strong>DATA TYPE in tensorflow: tf.float32, tf.int32…</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_1.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a=tf.constant([<span class="number">1.0</span>],[<span class="number">2.0</span>])</span><br><span class="line">b=tf.constant([<span class="number">3.0</span>],[<span class="number">4.0</span>])</span><br><span class="line">result = a + b</span><br><span class="line"><span class="keyword">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># RESULT: (The results are not given directly, but only in the form of the results.)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Tensor("add:0",shape=(2,),dtype=float32)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># "add" ----node name</span></span><br><span class="line"><span class="comment"># "0" ---- the order number of output</span></span><br><span class="line"><span class="comment"># shape ---- the dimension</span></span><br><span class="line"><span class="comment"># (2,) ---- One dimension with length 2</span></span><br><span class="line"><span class="comment"># dtype ---- data type</span></span><br></pre></td></tr></table></figure>
-<h3>Graph</h3>
-<p><strong>Graph only build the calculation step, not to do any calculation.</strong></p>
-<p><img src="./graph.PNG" alt="graph"></p>
-<p><strong>y = XW = x1 * w1+x2 * w2</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_2.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">x=tf.constant([[<span class="number">1.0</span>,<span class="number">2.0</span>]])</span><br><span class="line">w=tf.constant([[<span class="number">3.0</span>],[<span class="number">4.0</span>]])</span><br><span class="line">y=tf.matmul(x,w)</span><br><span class="line"><span class="keyword">print</span> y</span><br><span class="line"></span><br><span class="line"><span class="comment"># RESULT:</span></span><br><span class="line"><span class="comment"># Tensor("matmul:0",shape(1,1),dtype=float32)</span></span><br><span class="line"><span class="comment"># matmul is matrix mutiple</span></span><br></pre></td></tr></table></figure>
-<h3>Session</h3>
-<p>If we want to get the final result we need session.</p>
-<p>Session executes node calculation in graph.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tf3_2.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">	<span class="keyword">print</span> sess.run(y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.0*3.0 + 2.0*4.0 = [[ 11. ]]</span></span><br></pre></td></tr></table></figure>
-<p>There are few warning, this is because your computer is able to accelerate with GPU, but you didn’t use these. We can remove the warning information:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc</span><br><span class="line"><span class="comment"># insert at bottom, lower the level of tensorflow</span></span><br><span class="line">export TF_CPP_MIN_LOG_LEVEL=<span class="number">2</span></span><br><span class="line"><span class="comment"># source make it working</span></span><br><span class="line">source ~/.bashrc</span><br><span class="line"><span class="comment"># rerun the python file, the warning are removed</span></span><br></pre></td></tr></table></figure>
+                <h1>3. Longest Substring Without Repeating Characters</h1>
+<p>Medium</p>
+<p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;abcabcbb&quot;</span><br><span class="line">Output: 3 </span><br><span class="line">Explanation: The answer is &quot;abc&quot;, with the length of 3.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;bbbbb&quot;</span><br><span class="line">Output: 1</span><br><span class="line">Explanation: The answer is &quot;b&quot;, with the length of 1.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;pwwkew&quot;</span><br><span class="line">Output: 3</span><br><span class="line">Explanation: The answer is &quot;wke&quot;, with the length of 3. </span><br><span class="line">             Note that the answer must be a substring, &quot;pwke&quot; is a subsequence and not a substring.</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(self, s: str)</span> -&gt; int:</span></span><br><span class="line">        ls = <span class="string">''</span></span><br><span class="line">        l = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            <span class="keyword">if</span> c <span class="keyword">in</span> ls:</span><br><span class="line">                <span class="keyword">if</span> len(ls) &gt; l:</span><br><span class="line">                    l = len(ls)</span><br><span class="line">                ls = ls[ls.index(c)+<span class="number">1</span>:]</span><br><span class="line">            ls+=c</span><br><span class="line">        <span class="keyword">if</span> len(ls) &gt; l:</span><br><span class="line">            l = len(ls)</span><br><span class="line">        <span class="keyword">return</span> l</span><br></pre></td></tr></table></figure>
+<p><strong>Complexity Analysis</strong></p>
+<ul>
+<li>Time complexity : O(2n) = O(n)<em>O</em>(2<em>n</em>)=<em>O</em>(<em>n</em>). In the worst case each character will be visited twice by i and j</li>
+<li>Space complexity : O(min(m, n)). Same as the previous approach. We need O(k)<em>O</em>(<em>k</em>) space for the sliding window, where k<em>k</em> is the size of the <code>Set</code>. The size of the Set is upper bounded by the size of the string n and the size of the charset/alphabet m</li>
+</ul>
+<p>Hash map can improve it.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="number">2</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line"><span class="number">3</span></span><br><span class="line">        <span class="keyword">int</span> n = s.length(), ans = <span class="number">0</span>;</span><br><span class="line"><span class="number">4</span></span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(); <span class="comment">// current index of character</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line">        <span class="comment">// try to extend the range [i, j]</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>, i = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line"><span class="number">7</span></span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(s.charAt(j))) &#123;</span><br><span class="line"><span class="number">8</span></span><br><span class="line">                i = Math.max(map.get(s.charAt(j)), i);</span><br><span class="line"><span class="number">9</span></span><br><span class="line">            &#125;</span><br><span class="line"><span class="number">10</span></span><br><span class="line">            ans = Math.max(ans, j - i + <span class="number">1</span>);</span><br><span class="line"><span class="number">11</span></span><br><span class="line">            map.put(s.charAt(j), j + <span class="number">1</span>);</span><br><span class="line"><span class="number">12</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="number">13</span></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"><span class="number">14</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="number">15</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -277,13 +238,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Tensorflow-3-2-Forward-propagation/" data-toggle="tooltip" data-placement="top" title="[Tensorflow] 3.2 Forward propagation">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/Tensorflow-1-2-Preview-install/" data-toggle="tooltip" data-placement="top" title="[Tensorflow] 1&2 Preview  & Install">Next Post &rarr;</a>
+                            <a href="/article/LeetCode-2-Add-Two-Numbers/" data-toggle="tooltip" data-placement="top" title="[LeetCode] 2.Add Two Numbers">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -378,7 +335,7 @@
                        
                           <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
-                          <a class="tag" href="/tags/#Tensorflow" title="Tensorflow">Tensorflow</a>
+                          <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
                         
                     </div>
                 </section>
