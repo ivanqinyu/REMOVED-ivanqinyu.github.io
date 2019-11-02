@@ -31,28 +31,28 @@
 
     <url>
         <loc>http://www.ivanqinyu.github.io/tags/Algorithm/</loc>
-        <lastmod>2019-10-22T00:29:33.765Z</lastmod>
+        <lastmod>2019-10-31T21:17:59.610Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.ivanqinyu.github.io/tags/Graph-Theory/</loc>
-        <lastmod>2019-10-22T00:29:33.765Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://www.ivanqinyu.github.io/tags/Python/</loc>
-        <lastmod>2019-10-31T20:59:29.635Z</lastmod>
+        <lastmod>2019-10-31T21:17:59.610Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.ivanqinyu.github.io/tags/LeetCode/</loc>
-        <lastmod>2019-10-31T20:59:29.635Z</lastmod>
+        <lastmod>2019-11-02T01:24:23.402Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/tags/Python/</loc>
+        <lastmod>2019-11-02T01:24:23.402Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

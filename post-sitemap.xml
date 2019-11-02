@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/LeetCode-5-Longest-Palindromic-Substring/</loc>
+        <lastmod>2019-11-02T01:24:23.402Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/Algorithm2-Part-1-review-with-code/</loc>
+        <lastmod>2019-10-31T21:17:59.610Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/LeetCode-7-Reverse-Integer/</loc>
         <lastmod>2019-10-31T20:59:29.635Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +49,6 @@
     <url>
         <loc>http://www.ivanqinyu.github.io/article/LeetCode-1-Two-Sum/</loc>
         <lastmod>2019-10-28T23:33:05.956Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://www.ivanqinyu.github.io/article/Algorithm2-Part-1-review-with-code/</loc>
-        <lastmod>2019-10-22T00:29:33.765Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

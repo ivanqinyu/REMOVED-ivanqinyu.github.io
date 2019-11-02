@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Tkinter] Listbox - ivanqinyu 秦禹
+          [LeetCode] 5. Longest Palindromic Substring - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Tkinter-Listbox/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/LeetCode-5-Longest-Palindromic-Substring/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,16 +88,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
+                            
                               <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
-                              <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
-                            
                         </div>
-                        <h1>[Tkinter] Listbox</h1>
-                        <h2 class="subheading">Tkinter GUI </h2>
+                        <h1>[LeetCode] 5. Longest Palindromic Substring</h1>
+                        <h2 class="subheading">Day 5 每日一题坚持坚持坚持</h2>
                         <span class="meta">
                             Posted by Ivan Qin on
-                            2019-08-09
+                            2019-11-01
                         </span>
                     </div>
                 
@@ -214,7 +214,64 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">window.title(<span class="string">'my window'</span>)</span><br><span class="line">window.geometry(<span class="string">'200x200'</span>)</span><br><span class="line"></span><br><span class="line">var1=tk.StringVar()</span><br><span class="line">l = tk.Label(window,bg=<span class="string">'yellow'</span>,width=<span class="number">4</span>,textvariable=var1)</span><br><span class="line">l.pack()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_selection</span><span class="params">()</span>:</span></span><br><span class="line">    value = lb.get(lb.curselection())</span><br><span class="line">    var1.set(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b1 = tk.Button(window,text=<span class="string">'print selection'</span>,width=<span class="number">15</span>, height=<span class="number">2</span>,command=print_selection)</span><br><span class="line">b1.pack()</span><br><span class="line"></span><br><span class="line">var2 = tk.StringVar()</span><br><span class="line">var2.set((<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">44</span>))</span><br><span class="line">lb = tk.Listbox(window,listvariable=var2)</span><br><span class="line"></span><br><span class="line">lb.pack()</span><br><span class="line">items = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">    lb.insert(<span class="string">'end'</span>,item)</span><br><span class="line">lb.insert(<span class="number">1</span>,<span class="string">'first'</span>)</span><br><span class="line">lb.insert(<span class="number">2</span>,<span class="string">'second'</span>)</span><br><span class="line"></span><br><span class="line">lb.delete(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">window.mainloop()</span><br></pre></td></tr></table></figure>
+                <h1>5. Longest Palindromic Substring</h1>
+<p>Medium</p>
+<p>Given a string <strong>s</strong>, find the longest palindromic substring in <strong>s</strong>. You may assume that the maximum length of <strong>s</strong> is 1000.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;babad&quot;</span><br><span class="line">Output: &quot;bab&quot;</span><br><span class="line">Note: &quot;aba&quot; is also a valid answer.</span><br></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;cbbd&quot;</span><br><span class="line">Output: &quot;bb&quot;</span><br></pre></td></tr></table></figure>
+<h2>Hint</h2>
+<p>How can we reuse a previously computed palindrome to compute a larger palindrome?</p>
+<p>If “aba” is a palindrome, is “xabax” and palindrome? Similarly is “xabay” a palindrome?</p>
+<p>Complexity based hint:<br>
+If we use brute-force and check whether for every start and end position a substring is a palindrome we have O(n^2) start - end pairs and O(n) palindromic checks. Can we reduce the time for palindromic checks to O(1) by reusing some previous computation.</p>
+<h2>Summary</h2>
+<p>This article is for intermediate readers. It introduces the following ideas: Palindrome, Dynamic Programming and String Manipulation. Make sure you understand what a palindrome means. A palindrome is a string which reads the same in both directions. For example, S<em>S</em> = “aba” is a palindrome, S<em>S</em> = “abc” is not.</p>
+<h2>Solution</h2>
+<hr>
+<h4>Approach 1: Longest Common Substring</h4>
+<p><strong>Common mistake</strong></p>
+<p>Some people will be tempted to come up with a quick solution, which is unfortunately flawed (however can be corrected easily):</p>
+<blockquote>
+<p>Reverse S<em>S</em> and become S’<em>S</em>′. Find the longest common substring between S<em>S</em> and S’<em>S</em>′, which must also be the longest palindromic substring.</p>
+</blockquote>
+<p>This seemed to work, let’s see some examples below.</p>
+<p>For example, S<em>S</em> = “caba”, S’<em>S</em>′ = “abac”.</p>
+<p>The longest common substring between S<em>S</em> and S’<em>S</em>′ is “aba”, which is the answer.</p>
+<p>Let’s try another example: S<em>S</em> = “abacdfgdcaba”, S’<em>S</em>′ = “abacdgfdcaba”.</p>
+<p>The longest common substring between S<em>S</em> and S’<em>S</em>′ is “abacd”. Clearly, this is not a valid palindrome.</p>
+<p><strong>Algorithm</strong></p>
+<p>We could see that the longest common substring method fails when there exists a reversed copy of a non-palindromic substring in some other part of S. To rectify this, each time we find a longest common substring candidate, we check if the substring’s indices are the same as the reversed substring’s original indices. If it is, then we attempt to update the longest palindrome found so far; if not, we skip this and find the next candidate.</p>
+<p>This gives us an O(n^2) Dynamic Programming solution which uses O(n^2) space (could be improved to use O(n) space).</p>
+<h4>Approach 2: Brute Force</h4>
+<p>The obvious brute force solution is to pick all possible starting and ending positions for a substring, and verify if it is a palindrome.</p>
+<p><strong>Complexity Analysis</strong></p>
+<ul>
+<li>Time complexity : O(n^3). Assume that n is the length of the input string, there are a total of  nC2 = n(n-1)/2 such substrings (excluding the trivial solution where a character itself is a palindrome). Since verifying each substring takes O(n) time, the run time complexity is O(n^3).</li>
+<li>Space complexity : O(1).</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s: str)</span> -&gt; str:</span></span><br><span class="line">        maxx=<span class="number">-1</span></span><br><span class="line">        maxs=<span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> start <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            <span class="keyword">for</span> end <span class="keyword">in</span> range(start,len(s)):</span><br><span class="line">                isPa=<span class="keyword">True</span></span><br><span class="line">                k=s[start:end+<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> range (len(k)//<span class="number">2</span>):</span><br><span class="line">                    <span class="keyword">if</span> (k[i]!=k[len(k)-i<span class="number">-1</span>]):</span><br><span class="line">                        isPa= <span class="keyword">False</span>                </span><br><span class="line">                <span class="keyword">if</span> isPa <span class="keyword">and</span> end-start+<span class="number">1</span> &gt; maxx:</span><br><span class="line">                    maxx=end-start+<span class="number">1</span></span><br><span class="line">                    maxs=k</span><br><span class="line">        <span class="keyword">return</span> maxs</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">time limit exceeded</span><br><span class="line">s=&quot;civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth&quot;</span><br></pre></td></tr></table></figure>
+<h4>Approach 3: Dynamic Programming</h4>
+<p>To improve over the brute force solution, we first observe how we can avoid unnecessary re-computation while validating palindromes. Consider the case “ababa”. If we already knew that “bab” is a palindrome, it is obvious that “ababa” must be a palindrome since the two left and right end letters are the same.</p>
+<p>This yields a straight forward DP solution, which we first initialize the one and two letters palindromes, and work our way up finding all three letters palindromes, and so on…</p>
+<p><strong>Complexity Analysis</strong></p>
+<ul>
+<li>Time complexity : O(n^2). This gives us a runtime complexity of O(n^2).</li>
+<li>Space complexity : O(n^2). It uses O(n^2) space to store the table.</li>
+</ul>
+<p><strong>Additional Exercise</strong></p>
+<p>Could you improve the above space complexity further and how?</p>
+<hr>
+<h4>Approach 4: Expand Around Center</h4>
+<p>In fact, we could solve it in O(n^2) time using only constant space.</p>
+<p>We observe that a palindrome mirrors around its center. Therefore, a palindrome can be expanded from its center, and there are only 2n - 1 such centers.</p>
+<p>You might be asking why there are 2n - 1 but not n centers? The reason is the center of a palindrome can be in between two letters. Such palindromes have even number of letters (such as “abba”) and its center are between the two 'b’s.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span><span class="params">(self, s: str)</span> -&gt; str:</span></span><br><span class="line">        end=<span class="number">0</span></span><br><span class="line">        start=<span class="number">0</span></span><br><span class="line">        maxs=<span class="string">""</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            l=i</span><br><span class="line">            r=i</span><br><span class="line">            <span class="keyword">while</span> (l&gt;=<span class="number">0</span> <span class="keyword">and</span> r&lt;len(s) <span class="keyword">and</span> s[l]==s[r]):</span><br><span class="line">                l=l<span class="number">-1</span></span><br><span class="line">                r=r+<span class="number">1</span></span><br><span class="line">            len1=r-l<span class="number">-1</span></span><br><span class="line">            l=i</span><br><span class="line">            r=i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> (l&gt;=<span class="number">0</span> <span class="keyword">and</span> r&lt;len(s) <span class="keyword">and</span> s[l]==s[r]):</span><br><span class="line">                l=l<span class="number">-1</span></span><br><span class="line">                r=r+<span class="number">1</span></span><br><span class="line">            len2=r-l<span class="number">-1</span></span><br><span class="line">            </span><br><span class="line">            lenn=max(len1,len2)</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (lenn&gt;end-start):</span><br><span class="line">                start=i-int ((lenn<span class="number">-1</span>)/<span class="number">2</span>)</span><br><span class="line">                end=int(i+(lenn/<span class="number">2</span>))</span><br><span class="line">                maxs=s[start:end+<span class="number">1</span>]</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">return</span> maxs</span><br></pre></td></tr></table></figure>
+<p>Success</p>
+<p>Runtime: 920 ms, faster than 84.61% of Python3 online submissions for Longest Palindromic Substring.</p>
+<p>Memory Usage: 13.8 MB, less than 22.69% of Python3 online submissions for Longest Palindromic Substring.</p>
 
                 
 
@@ -222,13 +279,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Tkinter-Radiobutton/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Radiobutton">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/Tkinter-Entry-Text/" data-toggle="tooltip" data-placement="top" title="[Tkinter] Entry&Text">Next Post &rarr;</a>
+                            <a href="/article/LeetCode-7-Reverse-Integer/" data-toggle="tooltip" data-placement="top" title="[LeetCode] 7. Reverse Integer">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -321,9 +374,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                          <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
                         
-                          <a class="tag" href="/tags/#Tkinter" title="Tkinter">Tkinter</a>
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
                     </div>
                 </section>

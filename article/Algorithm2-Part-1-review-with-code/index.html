@@ -153,14 +153,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archive 文章总览</a>
+                            <a href="/tags/">Tags 文章分类</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags 文章分类</a>
+                            <a href="/archive/">Archive 文章总览</a>
                         </li>
                         
                     
@@ -221,7 +221,8 @@
 <h2>DEFINATION :</h2>
 <p><strong>(Request):</strong> A request is a pair of integers (s,f) with 0≤s≤f, and we call s is the start time, f is the end time.</p>
 <p><strong>(Compatible)</strong> A set A of requests is compatible if for all distinct (s, f) , (s’, f’)∈A, either s’≥f or s≥f’ ----that is, the request’ time intervals don’t overlap.</p>
-<h2>Algorithm Greedy schedule</h2>
+<hr>
+<h1>Algorithm Greedy schedule</h1>
 <h3>Code in python</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Greedy Schedule</span></span><br><span class="line"><span class="comment">#Input an array of n requests</span></span><br><span class="line"><span class="comment">#Output A maximum compatible subset of R</span></span><br><span class="line"><span class="comment">#sort the end, always choosing the lastf</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greedy</span><span class="params">(start,end)</span>:</span></span><br><span class="line">    k=<span class="number">0</span></span><br><span class="line">    lastf=<span class="number">-1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(start)):</span><br><span class="line">        <span class="keyword">if</span> (start[i]&gt;=lastf):</span><br><span class="line">            k=k+<span class="number">1</span></span><br><span class="line">            print(<span class="string">'('</span>,start[i],<span class="string">','</span>,end[i],<span class="string">")"</span>)</span><br><span class="line">            lastf=end[i]</span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort</span><span class="params">(start,end)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(end)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i,len(end)<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> (end[i]&gt;end[j]):</span><br><span class="line">                end[i],end[j]=end[j],end[i]</span><br><span class="line">                start[i],start[j]=start[j],start[i]</span><br><span class="line">    <span class="keyword">return</span> (start,end)</span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    start = [<span class="number">0</span>,<span class="number">5</span>,<span class="number">15</span>,<span class="number">20</span>,<span class="number">25</span>,<span class="number">38</span>,<span class="number">45</span>]</span><br><span class="line">    end = [<span class="number">30</span>,<span class="number">20</span>,<span class="number">55</span>,<span class="number">25</span>,<span class="number">40</span>,<span class="number">50</span>,<span class="number">60</span>]</span><br><span class="line"></span><br><span class="line">    start,end=sort(start,end)</span><br><span class="line">    </span><br><span class="line">    print(greedy(start,end))</span><br></pre></td></tr></table></figure>
 <h3>Time analysis</h3>
@@ -499,6 +500,10 @@ Step 2: “Let the clones choose their chocolates.”<br>
 Step 3: “Murder the clones and take their chocolates.”</p>
 <p><strong>(Hall’s Theorem)</strong>:Theorem: A bipartite graph G = (V, E) with bipartition (A, B) has a perfect matching if and only if |A| = |B| and, for all X ⊆ A, |N(X)| ≥ |X|.</p>
 <p><strong>Proof</strong>:</p>
+<hr>
+<h1>Hashing I</h1>
+<hr>
+<h1>Hashing II</h1>
 
                 
 
