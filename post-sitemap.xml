@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/LeetCode-10-Regular-Expression-Matching/</loc>
+        <lastmod>2019-11-11T20:11:44.887Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/article/LeetCode-4-Median-of-Two-Sorted-Arrays/</loc>
+        <lastmod>2019-11-11T20:11:19.383Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/LeetCode-9-Palindrome-Number/</loc>
         <lastmod>2019-11-10T20:31:01.370Z</lastmod>
         <changefreq>weekly</changefreq>
