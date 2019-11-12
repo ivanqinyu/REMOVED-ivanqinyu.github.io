@@ -219,7 +219,7 @@
                 post-container">
 
                 <hr>
-<h1>Data Structure</h1>
+<h1>Data Structure Hashing I</h1>
 <h1>FILO — Stacks - First In, Last Out</h1>
 <p>A stack supports three operations:<br>
 <strong>create()</strong>: Creates a new stack in O(1) time.<br>
@@ -240,6 +240,100 @@
 <strong>lookup(i)</strong>: Return the node with ID i in O(1) time.</p>
 <p><img src="./linkedlist.PNG" alt="linkedlist"></p>
 <p>Usually“IDs” are pointers to memory cells</p>
+<h1>Arrays</h1>
+<p>An array supports three operations. Normally the syntax for these would be built into the language, but here they are explicitly:<br>
+<strong>create(n)</strong>: Creates a new n-slot array in O(1) time.<br>
+<strong>update(x, i)</strong>: Stores x in the i th slot in O(1) time, overwriting its previous value.<br>
+<strong>lookup(i)</strong>: Returns the value stored in the i th slot in O(1) time.</p>
+<p>Arrays are usually implemented by allocating a continuous block of memory, storing a pointer to the start, and adding i · (cell size) to get the address of the ith slot. (This is why arrays are often indexed from zero.)</p>
+<h1>Hash tables (a.k.a. dictionaries)</h1>
+<p>They store key-value pairs rather than just values, and support four operations:<br>
+<strong>create()</strong>: Creates a new hash table in O(1) time.<br>
+<strong>insert(k,v)</strong>: Inserts (k, v) into the table in O(1) time <strong>on average.</strong><br>
+<strong>lookup(k)</strong>: If (k, v) is in the table, returns v; otherwise returns Null. Takes O(1) time <strong>on average.</strong><br>
+<strong>delete(k)</strong>: Deletes the pair (k, v) from the table in O(1) time.</p>
+<p>Note for each key k, we can only store one value v in the table.<br>
+We can also leave v unspecified, and use H to store a set of keys.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th style="text-align:center">Length-l list</th>
+<th>Size-s array</th>
+<th>Hash tables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search for an element</td>
+<td style="text-align:center">Θ(L) time</td>
+<td>Θ(S) time</td>
+<td>Θ(1) time</td>
+</tr>
+<tr>
+<td>Sequence of n insertions and/or removals</td>
+<td style="text-align:center">Θ(Ln) time</td>
+<td>Θ(Sn) time</td>
+<td>Θ(1) time</td>
+</tr>
+<tr>
+<td>Iterate over all elements in order</td>
+<td style="text-align:center">Θ(L) time</td>
+<td>Θ(S) time</td>
+<td>No order!</td>
+</tr>
+<tr>
+<td>Find an element by position Θ</td>
+<td style="text-align:center">Θ(L) time</td>
+<td>Θ(1) time</td>
+<td>No order!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Arrays</strong>: Good for storing <strong>ordered</strong> data with random access/update.<br>
+<strong>Lists</strong>: Good for storing <strong>ordered</strong> data you’re iterating over a lot, maybe inserting/deleting/updating elements as you go.<br>
+<strong>Hash tables</strong>: Good for storing <strong>unordered</strong> data, maybe with associated <strong>keys</strong>, with fast lookup/membership checking.</p>
+<h2>How do hash tables work?</h2>
+<p>Let U (for “universe”) be the set of all possible keys.</p>
+<p><strong>One option</strong>: Store the table in an array indexed by U. Works well if U is small, but… U could be the set of all first names, or all phone numbers, or sets of vertices in a graph. We can’t afford Θ(|U|) space or time.</p>
+<p><strong>Instead</strong>: Use a smaller array, of size n &lt;&lt; |U|, and use a <strong>hash function</strong> h to map elements of U to {0, . . . , n − 1}.</p>
+<p>Let’s take n = 5, U to be the set of English strings, and assume we’re given a hash function h. A first attempt might be:<br>
+create(n): Allocates a size-n array A.<br>
+insert(k,v): Updates A[h(k)] to v.<br>
+lookup(k): Returns A[h(k)].<br>
+delete(v): Updates A[h(k)] to Null.<br>
+Serious problem: What happens when we assign two keys k and l to the same slot, i.e. h(k) = h(l)?</p>
+<p>When (k, v) is in the table, and we try to insert (l,w) with h(l) = h(k), we call this a <strong>collision</strong>.<br>
+<strong>Key idea</strong>: Instead of an array, use an array of linked lists. (<strong>Chaining</strong>.)</p>
+<p>Downside: If our lists have length l, now lookup and deletion take Θ(l) time rather than O(1) time.</p>
+<p>So now collisions don’t break the table completely, but they do make our lists longer, degrading performance. How can we minimise them?</p>
+<p><strong>Problem 1</strong>: Often |U| &gt;&gt; n, so h has to map many keys to the same slot.<br>
+<strong>Solution</strong>: Choose h cleverly and <strong>randomly</strong> — see next lecture.<br>
+<strong>Problem 2</strong>: What happens when our hash table has n entries?<br>
+<strong>Solution</strong>: Resize the hash table as we go.</p>
+<p><strong>Dynamic resizing</strong></p>
+<p><strong>Idea</strong>: Track the number of keys stored. (Adds only O(1) overhead.)<br>
+On insertion, if there are at least n/2 values in our table H:</p>
+<ul>
+<li>Call create(2n) to make a new table H’ which is twice as big;</li>
+<li>For each pair (k, v) in H, call H’.insert(k, v);</li>
+<li>Use H’ as our new table, setting H ← H’.</li>
+</ul>
+<p>If we choose h well, this takes Θ(n) time <strong>on average</strong>.</p>
+<p>But… now insertion takes Θ(n) time in the worst case. That’s bad, right?<br>
+Our goal for a hash table is for insertion to take O(1) time <strong>on average</strong>.</p>
+<hr>
+<h1>Data Structure Hashing II</h1>
+<h2>Markov’s inequality</h2>
+<p>Markov’s inequality: Let X ≥ 0 be a random variable with mean µ. Then for all t ≥ 0, P(X ≥ t) ≤ µ/t.</p>
+<p>Proof (for discrete variables): By definition, we have</p>
+<p>µ =Σ</p>
+<p>$$x_1$$</p>
+<p>$$x_1^2$$</p>
+<p>$$x^2_1$$</p>
+<p>$$x_{22}^{(n)}$$</p>
+<p>$${}^<em>x^</em>$$</p>
+<p>$$x_{balabala}^{bala}$$</p>
 
                 
 
