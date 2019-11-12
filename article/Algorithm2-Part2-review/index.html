@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          About 关于我 - ivanqinyu 秦禹
+          [Algorithm2] Part2 review - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/about/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Algorithm2-Part2-review/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/about.jpg')
-            /*page*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,24 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>About 关于我</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">不忘初心 牢记使命</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
+                            
+                              <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                            
+                              <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
+                            
+                              <a class="tag" href="/tags/#Hash" title="Hash">Hash</a>
+                            
+                        </div>
+                        <h1>[Algorithm2] Part2 review</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Ivan Qin on
+                            2019-11-12
+                        </span>
                     </div>
                 
 
@@ -191,238 +205,221 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <h3><a href="./Ivan-Qin.pdf">个人简历英文版下载</a></h3>
-<h3><a href="./Ivan-Qin.pdf">Download My CV</a></h3>
-<h3>关于我 About Me</h3>
-<blockquote>
-<p>喜欢数学，喜欢代码，喜欢研究了解技术。</p>
-</blockquote>
-<h3>学习经历</h3>
-<blockquote>
-<p>2006-2012 江苏省南京市拉萨路小学</p>
-<p>2012-2015 江苏省南京市南京外国语学校初中</p>
-<p>2015-2016 英国南安普顿依晨语言学院</p>
-<p>2016-2018 英国伯明翰爱德华六世学院</p>
-<p>2018-2021 英国布里斯托大学 计算机与数学双学位（在读）</p>
-</blockquote>
-<h3>参与社区</h3>
-<blockquote>
-<p>Github:<a href="https://github.com/ivanqinyu" target="_blank" rel="noopener">https://github.com/ivanqinyu</a></p>
-<p>知乎Zhihu:<a href="https://zhihu.com/people/ivanqinyu" target="_blank" rel="noopener">https://zhihu.com/people/ivanqinyu</a></p>
-</blockquote>
-<h3>联系我</h3>
-<blockquote>
-<p>邮箱Email: <a href="mailto:ivanqinyu@gmail.com" target="_blank" rel="noopener">ivanqinyu@gmail.com</a></p>
-<p>国内邮箱: <a href="mailto:916798384@qq.com" target="_blank" rel="noopener">916798384@qq.com</a></p>
-<p>微信Wechat: njqinyu</p>
-<p>QQ:916798384</p>
-</blockquote>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <hr>
+<h1>Data Structure</h1>
+<h1>FILO — Stacks - First In, Last Out</h1>
+<p>A stack supports three operations:<br>
+<strong>create()</strong>: Creates a new stack in O(1) time.<br>
+<strong>push(x)</strong>: Adds x to the stack in O(1) time.<br>
+<strong>pop()</strong>: Removes the most recently-added piece of data from the stack and returns it in O(1) time.</p>
+<p>Used in <strong>recursion</strong></p>
+<h1>FIFO — Queues  - First In, First Out</h1>
+<p>A queue supports three operations:<br>
+<strong>create()</strong>: Creates a new queue in O(1) time.<br>
+<strong>add(x)</strong>: Adds x to the queue in O(1) time.<br>
+<strong>serve()</strong>: Removes the <strong>least</strong> recently-added piece of data from the queue and returns it in O(1) time.</p>
+<p>Used in <strong>printing</strong></p>
+<h1>(Double-ended) Linked Lists</h1>
+<p>A linked list supports four operations:<br>
+<strong>create()</strong>: Creates a new list and returns two node IDs in O(1) time.<br>
+<strong>insert(x,i)</strong>: Inserts x after the node with ID i in O(1) time.<br>
+<strong>delete(i)</strong>: Deletes the node with ID i in O(1) time.<br>
+<strong>lookup(i)</strong>: Return the node with ID i in O(1) time.</p>
+<p><img src="%5Clinkedlist.PNG" alt="linkedlist"></p>
+<p>Usually“IDs” are pointers to memory cells</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/LeetCode-10-Regular-Expression-Matching/" data-toggle="tooltip" data-placement="top" title="[LeetCode] 10. Regular Expression Matching">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
                 <br>
 
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wxpay.jpg"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">保存图片 扫一扫 好人平安</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
-                <!-- 如果开启评论功能 -->
+                <div class="aplayer"
+                    data-id="117578447"
+                    data-server="netease"
+                    data-type="playlist"
+                    data-fixed="true" >
+                </div>
                 
-                    <hr>
 
-                    
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
 
-                    
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
 
-                    
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
 
-                    
+                
 
-                    
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTc1NS8yMjI2Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-                    
+       if (typeof LivereTower === 'function') { return; }
 
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
+                        
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
+                        
+                          <a class="tag" href="/tags/#Hash" title="Hash">Hash</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
-
-        
-            <img id = "avatar_pic" src="/img/avatar/qin.jpg" />
-        
-
-        
-            <p>秦能统一 禹能治水 计算机数学学生</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
-                <li>
-                    <a target="_blank" href="https://www.zhihu.com/people/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="http://weibo.com/5020251689">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="https://www.facebook.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Featured Tags -->
 
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#Algorithm" title="Algorithm" rel="2">Algorithm</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="30">Python</a>
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#LeetCode" title="LeetCode" rel="10">LeetCode</a>
-            
-        
-            
-            <a href="/tags/#Concurrent" title="Concurrent" rel="2">Concurrent</a>
-            
-        
-            
-            <a href="/tags/#Tensorflow" title="Tensorflow" rel="3">Tensorflow</a>
-            
-        
-            
-            <a href="/tags/#Tkinter" title="Tkinter" rel="11">Tkinter</a>
-            
-        
-            
-        
-            
-        
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/Algorithm2-Part2-review/">[Algorithm2] Part2 review</a>
-        </li>
-      
-        <li>
-          <a href="/article/LeetCode-10-Regular-Expression-Matching/">[LeetCode] 10. Regular Expression Matching</a>
-        </li>
-      
-        <li>
-          <a href="/article/LeetCode-9-Palindrome-Number/">[LeetCode] 9. Palindrome Number</a>
-        </li>
-      
-        <li>
-          <a href="/article/LeetCode-4-Median-of-Two-Sorted-Arrays/">[LeetCode] 4. Median of Two Sorted Arrays</a>
-        </li>
-      
-        <li>
-          <a href="/article/LeetCode-8-String-to-Integer-atoi/">[LeetCode] 8. String to Integer (atoi)</a>
-        </li>
-      
-    </ul>
-  </div>
 
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li></ul>
-    </div>
 
-        <hr>
-    
-</div>
 
-        
-    </div>
-</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->

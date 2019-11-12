@@ -30,29 +30,43 @@
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/tags/Algorithm/</loc>
-        <lastmod>2019-10-31T21:17:59.610Z</lastmod>
+        <loc>http://www.ivanqinyu.github.io/tags/LeetCode/</loc>
+        <lastmod>2019-11-11T20:11:44.887Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.ivanqinyu.github.io/tags/Graph-Theory/</loc>
-        <lastmod>2019-10-31T21:17:59.610Z</lastmod>
+        <lastmod>2019-11-12T18:35:38.620Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/tags/Algorithm/</loc>
+        <lastmod>2019-11-12T18:54:15.593Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://www.ivanqinyu.github.io/tags/Python/</loc>
-        <lastmod>2019-11-11T20:11:44.887Z</lastmod>
+        <lastmod>2019-11-12T18:54:15.593Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/tags/LeetCode/</loc>
-        <lastmod>2019-11-11T20:11:44.887Z</lastmod>
+        <loc>http://www.ivanqinyu.github.io/tags/Data-Structure/</loc>
+        <lastmod>2019-11-12T18:54:15.593Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/tags/Hash/</loc>
+        <lastmod>2019-11-12T18:54:15.593Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
