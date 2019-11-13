@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/about/">About 关于我</a>
+                            <a href="/archive/">Archive 文章总览</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archive 文章总览</a>
+                            <a href="/about/">About 关于我</a>
                         </li>
                         
                     
@@ -327,7 +327,21 @@ Our goal for a hash table is for insertion to take O(1) time <strong>on average<
 <h2>Markov’s inequality</h2>
 <p>Markov’s inequality: Let X ≥ 0 be a random variable with mean µ. Then for all t ≥ 0, P(X ≥ t) ≤ µ/t.</p>
 <p>Proof (for discrete variables): By definition, we have</p>
-<p><img src="D:%5Cblog%5Csource_posts%5CAlgorithm2-Part2-review%5Cmarkov.PNG" alt=""></p>
+<p><img src="./markov.PNG" alt=""></p>
+<p>The result follows on dividing by t.</p>
+<p>Corollary: If an algorithm has expected running time T, then the probability it runs for more than kT time is at most T/kT = 1/k.<br>
+(So e.g. there’s a 95% chance it finishes within time 20T.)</p>
+<p>Suppose we have an algorithm with expected running time T on any input.<br>
+<strong>The trick</strong>: If it runs for time 2T or longer, we halt execution and restart the algorithm with the same input. We keep doing this until it works.</p>
+<p>Lemma: For all integers k ≥ 1, the probability that this new algorithm<br>
+runs for more than 2kT time is at most 2^−k^.<br>
+(So e.g. there’s a 1 − 2^−10^ ∼ 99.9% chance it finishes in time 20T.)<br>
+<strong>Proof</strong>: Markov’s inequality implies that each time we run the algorithm, it<br>
+fails to halt with probability at most T/2T = 1/2. So we have</p>
+<p><strong>P(Running time ≥ 2kT) = P(k consecutive failures)= (1/2)^k^.</strong></p>
+<p>Consider a <strong>sequence</strong> of t legal operations, starting with create().<br>
+<strong>Theorem</strong>: For a suitable choice of h, the expected running time of <strong>the whole sequence</strong> is O(t).<br>
+<strong>Last time</strong>: We (deterministically) spend O(t) time resizing. So all that’s left is time spent looking through lists, choosing h, and computing h.</p>
 
                 
 
