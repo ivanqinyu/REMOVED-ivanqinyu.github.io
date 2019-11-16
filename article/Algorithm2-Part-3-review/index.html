@@ -92,8 +92,6 @@
                             
                               <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
-                              <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
-                            
                               <a class="tag" href="/tags/#FFT" title="FFT">FFT</a>
                             
                         </div>
@@ -270,6 +268,78 @@ We can evaluate this as A(x) = 2 + x(3 + 1 * x)</p>
 <p>For a coefficient representation, the addition C = A + B constructs C as the vector:<br>
 (a0 + b0, a1 + b1, a2 + b2, . . . , an−1 + bn−1).</p>
 <p>Strictly speaking, A and B should have the <strong>same length</strong> but in practice we can just <strong>pad with zero</strong> coefficients to make this so.</p>
+<h2>Point Value Representation of Polynomials</h2>
+<h2>Polynomial Addition</h2>
+<p>Fact: Given n points (xi, yi), with all xi distinct, there is a unique polynomial A(x) of degree-bound n such that yk = A(xk ) for k = 0, 1, . . . , n − 1.</p>
+<ul>
+<li>For a point-value representation, the addition C = A + B constructs C as: {(x0, y0 + z0),(x1, y1 + z1),(x2, y2 + z2), . . . ,(xn−1, yn−1 + zn−1)} where xi is a point, yi = A(xi) and zi = B(xi).</li>
+<li>Note that the two point-value representations must use <strong>the same evaluation points</strong>.</li>
+<li>Both these operations are <strong>O(n)</strong> in terms of the time they take.</li>
+</ul>
+<h2>Polynomial Multiplication</h2>
+<p>Computing a polynomial multiplication, sometimes called <strong>convolution</strong>, is a little bit harder than addition.</p>
+<p>For a coefficient representation, the product C = A × B can be calculated with school-book long multiplication:</p>
+<p><img src="./polynomial4.PNG" alt="polynomial"></p>
+<p>To do now: multiply <strong>7x^2 − 10x + 9 and 2x^2 + 4x − 5</strong></p>
+<p>For a point-value representation, C = A × B is a bit easier:<br>
+{(x0, y0 · z0),(x1, y1 · z1),(x2, y2 · z2), . . . ,(xn−1, yn−1 · zn−1)} where xi is a point, yi = A(xi) and zi = B(xi).<br>
+The first method is O(n^2), the second method is O(n) !</p>
+<p>Actually, we can do a bit better than the O(n^2) case using the divide and conquer method due to <strong>Karatsuba</strong>.<br>
+This gives an algorithm with time complexity:  O(n^log2 3) = O(n^1.59), which is better than our previous method which took O(n^2) operations.</p>
+<p>The problem is that even this is too slow … we know that using a point-value representation is O(n) !</p>
+<p><img src="./polynomial5.PNG" alt="polynomial"></p>
+<h1>The Main Idea</h1>
+<p>Develop two fast algorithms that for any polynomial:</p>
+<p><img src="./polynomial6.PNG" alt="polynomial"></p>
+<p>and a preselected set x0, x1, . . . , xn−1 of numbers (to be specified before we know which polynomials we will have)</p>
+<p>Evaluate A(x0), A(x1), . . . , A(xn−1) (evaluate)<br>
+Given A(x0), A(x1), . . . , A(xn−1), reconstruct A’s coefficients<br>
+a0, a1, . . . am−1 (interpolate)</p>
+<p>The main steps for fast multiplication of two polynomials A and B each of<br>
+degree n are:</p>
+<ol>
+<li>Double degree-bound: Create coefficient representations of A(x) and B(x) as degree-bound 2n polynomials by adding n high-order zero coefficients to each</li>
+<li>Evaluate: Compute point-value representations of A(x) and B(x) of length 2n through two applications of the FFT of order 2n.</li>
+<li>Pointwise multiply: Compute a point-value representation of C(x) = A(x)B(x) by multiplying the values pointwise</li>
+<li>Interpolate: Create a coefficient representation of C(x) through a single application of the inverse FFT.</li>
+</ol>
+<p>The first and third steps are easy to perform in O(n) time. The claim is that if we evaluate at the complex roots of unity then we can perform steps 2 and 4 in O(n log n) time.</p>
+<h2>Evaluation at Roots of Unity</h2>
+<p>These special points are chosen to be the <strong>N-th Complex Roots of Unity</strong>:<br>
+That is, the values ωN = e^2πij/N, for j = 0, 1, . . . , N − 1.<br>
+Say we are evaluating at N points so we take the N-th complex roots of<br>
+unity ωN .</p>
+<p><img src="./polynomial7.PNG" alt="polynomial"></p>
+<h2>Discrete Fourier Transform</h2>
+<p>We want to evaluate a polynomial A at the n roots of unity.<br>
+Therefore we evaluate</p>
+<p><img src="./polynomial8.PNG" alt="polynomial">for every k = 0, 1, . . . , n − 1.</p>
+<p><img src="./polynomial9.PNG" alt="polynomial"></p>
+<p>This vector y = (y0, . . . , yn−1) is the Discrete Fourier Transform (DFT)<br>
+of the coefficient vector a = (a0, a1, . . . , an−1).</p>
+<p>example:<br>
+The discrete Fourier transform of 0 + 0x + x^2 − x^3 is 0, −1 + i, 2, −1 − i</p>
+<p><strong>Lemma</strong>:</p>
+<p><strong>The Cancellation Lemma</strong>:<img src="./polynomial10.PNG" alt="polynomial"></p>
+<p><strong>The Halving Lemma</strong>: If N &gt; 0 is even then the squares of the N complex<br>
+N-th roots of unity are the N/2 complex N/2-th roots of unity.</p>
+<h2>Fast Fourier Transform</h2>
+<ul>
+<li>
+<p>The basic idea of the Fast Fourier Transform (FFT), a fast version of the DFT, is define two new polynomials:<img src="./polynomial11.PNG" alt="polynomial"> and use these to divide and conquer the problem.</p>
+</li>
+<li>
+<p>From the above, we have:<img src="./polynomial12.PNG" alt="polynomial"></p>
+</li>
+<li>
+<p><img src="./polynomial13.PNG" alt="polynomial"></p>
+</li>
+<li>
+<p>The Halving Lemma tells us there are only N/2 complex N/2-th roots<br>
+of unity, each one must occur twice !</p>
+</li>
+</ul>
+<p><img src="./polynomial14.PNG" alt="polynomial"></p>
 
                 
 
@@ -375,8 +445,6 @@ We can evaluate this as A(x) = 2 + x(3 + 1 * x)</p>
                           <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
                         
                           <a class="tag" href="/tags/#Python" title="Python">Python</a>
-                        
-                          <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
                         
                           <a class="tag" href="/tags/#FFT" title="FFT">FFT</a>
                         
