@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [LeetCode] 9. Palindrome Number - ivanqinyu 秦禹
+          [Algorithm2] Part 3 review - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/LeetCode-9-Palindrome-Number/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Algorithm2-Part-3-review/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -88,16 +88,20 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
+                            
                               <a class="tag" href="/tags/#Python" title="Python">Python</a>
                             
-                              <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
+                              <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
+                            
+                              <a class="tag" href="/tags/#FFT" title="FFT">FFT</a>
                             
                         </div>
-                        <h1>[LeetCode] 9. Palindrome Number</h1>
-                        <h2 class="subheading">Day 8 每日一题坚持坚持坚持</h2>
+                        <h1>[Algorithm2] Part 3 review</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Ivan Qin on
-                            2019-11-10
+                            2019-11-14
                         </span>
                     </div>
                 
@@ -214,19 +218,19 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1>9. Palindrome Number</h1>
-<p>Easy</p>
-<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
-<p><strong>Example 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
-<p><strong>Example 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
-<p><strong>Example 3:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type x: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        s=str(x)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)/<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> s[i]!=s[len(s)<span class="number">-1</span>-i]:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-<p><strong>Follow up:</strong></p>
-<p>Cloud you solve it without converting the integer to a string?</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type x: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span>(x == <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> x &lt; <span class="number">0</span> <span class="keyword">or</span> x%<span class="number">10</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        </span><br><span class="line">        temp = <span class="number">0</span></span><br><span class="line">        preX = x;</span><br><span class="line">        <span class="keyword">while</span> x &gt; temp:</span><br><span class="line">            pop = x%<span class="number">10</span></span><br><span class="line">            preX = x</span><br><span class="line">            x =x / <span class="number">10</span></span><br><span class="line"></span><br><span class="line">            temp = temp*<span class="number">10</span> + pop</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> x == temp <span class="keyword">or</span> preX == temp:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+                <h1>Overview</h1>
+<ol>
+<li>How to multiply two large polynomials (and therefore integers) using<br>
+Fourier transforms</li>
+<li>How to implement the fast Fourier transform (FFT) from scratch<br>
+I By doing this we will reduce the time complexity of polynomial<br>
+multiplication from O(n^2) to O(n log n).<br>
+I Perhaps more importantly, you will also learn one of the most useful<br>
+and widely deployed computational tools in science and engineering.</li>
+</ol>
+<h2>Polynomials (1)</h2>
+<p>A degree n − 1 polynomial in x can be seen as a function:</p>
+<p><img src="D:%5Cblog%5Csource_posts%5CAlgorithm2-Part-3-review%5Cpolynomial.PNG" alt="polynomial"></p>
 
                 
 
@@ -234,13 +238,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/LeetCode-10-Regular-Expression-Matching/" data-toggle="tooltip" data-placement="top" title="[LeetCode] 10. Regular Expression Matching">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/LeetCode-4-Median-of-Two-Sorted-Arrays/" data-toggle="tooltip" data-placement="top" title="[LeetCode] 4. Median of Two Sorted Arrays">Next Post &rarr;</a>
+                            <a href="/article/Algorithm2-Part-2-review/" data-toggle="tooltip" data-placement="top" title="[Algorithm2] Part 2 review">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -333,9 +333,13 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#Algorithm" title="Algorithm">Algorithm</a>
+                        
                           <a class="tag" href="/tags/#Python" title="Python">Python</a>
                         
-                          <a class="tag" href="/tags/#LeetCode" title="LeetCode">LeetCode</a>
+                          <a class="tag" href="/tags/#Data Structure" title="Data Structure">Data Structure</a>
+                        
+                          <a class="tag" href="/tags/#FFT" title="FFT">FFT</a>
                         
                     </div>
                 </section>
