@@ -231,6 +231,45 @@ and widely deployed computational tools in science and engineering.</li>
 <h2>Polynomials (1)</h2>
 <p>A degree n − 1 polynomial in x can be seen as a function:</p>
 <p><img src="./polynomial.PNG" alt="polynomial"></p>
+<p>Any integer greater than the degree of a polynomial is a <strong>degree-bound</strong> of that polynomial.<br>
+I The polynomial A in x is:</p>
+<p><img src="./polynomial2.PNG" alt="polynomial"></p>
+<p>The values ai are the <strong>coefficients</strong>, the degree is n − 1 and n, for example, is a degree-bound<br>
+We can express any <strong>integer</strong> as a kind of polynomial by setting x to some base, say for decimal numbers:</p>
+<p><img src="./polynomial3.PNG" alt="polynomial"></p>
+<h2>Polynomials (2)</h2>
+<ul>
+<li>
+<p>The <strong>variable</strong> x allows us to <strong>evaluate</strong> the polynomial at a point:</p>
+</li>
+<li>
+<p>Evaluation just means plugging a value into the variable x.</p>
+</li>
+<li>
+<p>For example A(3) = a~0~ · 3^0^ + a~1~ · 3^1^ + a~2~ · 3^2^· · · + a~n−1~3^n−1^.</p>
+</li>
+<li>
+<p>A fast way to evaluate a polynomial is using <strong>Horner’s Rule</strong>.</p>
+<ul>
+<li>
+<p>Instead of computing all the terms individually, we do</p>
+<p>A(3) = a~0~ + 3 · (a~1~ + 3 · (a~2~ + · · · + 3 · (a~n−1~)))</p>
+</li>
+<li>
+<p>This method requires <strong>O(n)</strong> operations:</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">EVALUATE-HORNER(A, n, x)</span><br><span class="line">begin</span><br><span class="line">    t ← <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i = n − <span class="number">1</span> downto <span class="number">0</span> step −<span class="number">1</span> do</span><br><span class="line">        t ← (t · x) + ai</span><br><span class="line">    <span class="keyword">return</span> t</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>Example:<br>
+Consider A(x) = 2 + 3x + 1 * x^2<br>
+We can evaluate this as A(x) = 2 + x(3 + 1 * x)</p>
+<h2>Coefficient Based Polynomial Arithmetic</h2>
+<p>Once we have our polynomial representations, we might want to do some <strong>arithmetic</strong> with them.</p>
+<p>For a coefficient representation, the addition C = A + B constructs C as the vector:<br>
+(a0 + b0, a1 + b1, a2 + b2, . . . , an−1 + bn−1).</p>
+<p>Strictly speaking, A and B should have the <strong>same length</strong> but in practice we can just <strong>pad with zero</strong> coefficients to make this so.</p>
 
                 
 
