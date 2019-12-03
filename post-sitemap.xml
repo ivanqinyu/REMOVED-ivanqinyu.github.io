@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://www.ivanqinyu.github.io/article/LeetCode-27-Remove-Element/</loc>
+        <lastmod>2019-12-03T10:07:12.897Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.ivanqinyu.github.io/article/LeetCode-26-Remove-Duplicates-from-Sorted-Array/</loc>
         <lastmod>2019-12-02T01:57:50.269Z</lastmod>
         <changefreq>weekly</changefreq>
