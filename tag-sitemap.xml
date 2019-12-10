@@ -51,13 +51,6 @@
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/tags/Algorithm/</loc>
-        <lastmod>2019-11-19T02:49:38.879Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://www.ivanqinyu.github.io/tags/BFS/</loc>
         <lastmod>2019-11-19T02:49:38.879Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -79,15 +72,29 @@
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/tags/Python/</loc>
+        <loc>http://www.ivanqinyu.github.io/tags/LeetCode/</loc>
         <lastmod>2019-12-06T16:15:13.259Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://www.ivanqinyu.github.io/tags/LeetCode/</loc>
-        <lastmod>2019-12-06T16:15:13.259Z</lastmod>
+        <loc>http://www.ivanqinyu.github.io/tags/Algorithm/</loc>
+        <lastmod>2019-12-10T22:03:38.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/tags/Python/</loc>
+        <lastmod>2019-12-10T22:03:38.048Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.ivanqinyu.github.io/tags/Linear-Programming/</loc>
+        <lastmod>2019-12-10T22:03:38.048Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
