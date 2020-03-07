@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          ivanqinyu 秦禹
+          [Machine Learning] 4 - ivanqinyu 秦禹
         
     </title>
 
-    <link rel="canonical" href="http://www.ivanqinyu.github.io/page/6/">
+    <link rel="canonical" href="http://www.ivanqinyu.github.io/article/Machine-Learning-4/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,8 +71,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/header_img/home.jpg') 
-            /*config*/
+            background-image: url('/img/article_header/article_bg.jpg')
+            /*post*/
         
     }
     
@@ -85,10 +85,18 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="site-heading">
-                        <h1>Ivan Qin</h1>
-                        <!--<hr class="small">-->
-                        <span class="subheading">秦禹个人主页</span>
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Machine Learning" title="Machine Learning">Machine Learning</a>
+                            
+                        </div>
+                        <h1>[Machine Learning] 4</h1>
+                        <h2 class="subheading">Linear alg</h2>
+                        <span class="meta">
+                            Posted by Ivan Qin on
+                            2020-03-07
+                        </span>
                     </div>
                 
 
@@ -191,394 +199,242 @@
 
 
     <!-- Main Content -->
-    <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
+    <!-- Modify by Yu-Hsuan Yen -->
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <h2>三、线性代数回顾(Linear Algebra Review)</h2>
+<h3>3.1 矩阵和向量</h3>
+<p>参考视频: 3 - 1 - Matrices and Vectors (9 min).mkv</p>
+<p>如图：这个是4×2矩阵，即4行2列，如为行，为列，那么即4×2</p>
+<p><img src="http://www.ai-start.com/ml2014/images/9fa04927c2bd15780f92a7fafb539179.png" alt="img"></p>
+<p>矩阵的维数即行数×列数</p>
+<p>矩阵元素（矩阵项）：</p>
+<p>指第行，第列的元素。</p>
+<p>向量是一种特殊的矩阵，讲义中的向量一般都是列向量，如：</p>
+<p>为四维列向量（4×1）。</p>
+<p>如下图为1索引向量和0索引向量，左图为1索引向量，右图为0索引向量，一般我们用1索引向量。</p>
+<p>，</p>
+<h3>3.2 加法和标量乘法</h3>
+<p>参考视频: 3 - 2 - Addition and Scalar Multiplication (7 min).mkv</p>
+<p>矩阵的加法：行列数相等的可以加。</p>
+<p>例：</p>
+<p><img src="http://www.ai-start.com/ml2014/images/ffddfddfdfd.png" alt="img"></p>
+<p>矩阵的乘法：每个元素都要乘</p>
+<p><img src="http://www.ai-start.com/ml2014/images/fdddddd.png" alt="img"></p>
+<p>组合算法也类似。</p>
+<h3>3.3 矩阵向量乘法</h3>
+<p>参考视频: 3 - 3 - Matrix Vector Multiplication (14 min).mkv</p>
+<p>矩阵和向量的乘法如图：的矩阵乘以的向量，得到的是的向量</p>
+<p><img src="http://www.ai-start.com/ml2014/images/437ae2333f00286141abe181a1b7c44a.png" alt="img"></p>
+<p>算法举例：</p>
+<p><img src="http://www.ai-start.com/ml2014/images/b2069e4b3e12618f5405500d058118d7.png" alt="img"></p>
+<h3>3.4 矩阵乘法</h3>
+<p>参考视频: 3 - 4 - Matrix Matrix Multiplication (11 min).mkv</p>
+<p>矩阵乘法：</p>
+<p>矩阵乘以矩阵，变成矩阵。</p>
+<p>如果这样说不好理解的话就举一个例子来说明一下，比如说现在有两个矩阵和，那么它们的乘积就可以表示为图中所示的形式。</p>
+<p><img src="http://www.ai-start.com/ml2014/images/1a9f98df1560724713f6580de27a0bde.jpg" alt="img"> <img src="http://www.ai-start.com/ml2014/images/5ec35206e8ae22668d4b4a3c3ea7b292.jpg" alt="img"></p>
+<h3>3.5 矩阵乘法的性质</h3>
+<p>参考视频: 3 - 5 - Matrix Multiplication Properties (9 min).mkv</p>
+<p>矩阵乘法的性质：</p>
+<p>矩阵的乘法不满足交换律：</p>
+<p>矩阵的乘法满足结合律。即：</p>
+<p>单位矩阵：在矩阵的乘法中，有一种矩阵起着特殊的作用，如同数的乘法中的1,我们称这种矩阵为单位矩阵．它是个方阵，一般用  或者  表示，本讲义都用  代表单位矩阵，从左上角到右下角的对角线（称为主对角线）上的元素均为1以外全都为0。如：</p>
+<p>对于单位矩阵，有</p>
+<h3>3.6 逆、转置</h3>
+<p>参考视频: 3 - 6 - Inverse and Transpose (11 min).mkv</p>
+<p>矩阵的逆：如矩阵是一个矩阵（方阵），如果有逆矩阵，则：</p>
+<p>我们一般在<strong>OCTAVE</strong>或者<strong>MATLAB</strong>中进行计算矩阵的逆矩阵。</p>
+<p>矩阵的转置：设为阶矩阵（即行列），第行列的元素是，即：</p>
+<p>定义的转置为这样一个阶矩阵，满足，即 （的第行第列元素是的第行第列元素），记。(有些书记为A’=B）</p>
+<p>直观来看，将的所有元素绕着一条从第1行第1列元素出发的右下方45度的射线作镜面反转，即得到的转置。</p>
+<p>例：</p>
+<p>矩阵的转置基本性质:</p>
+<p><strong>matlab</strong>中矩阵转置：直接打一撇，<code>x=y'</code>。</p>
 
-<div class="post-preview">
+                
 
-    <a href="/article/Concurrent-Multiprocessing/">
-        <h2 class="post-title">
-                                 
-            [Concurrent] Multiprocessing
-        </h2>
-        <h3 class="post-subtitle">
-            Concurrent preview in python
-        </h3>
-        <div class="post-content-preview">
-            1. Compare with threading
-The multiprocessing are similar to the threading, they are both doing concurrent in python.
-The reason why we have multiprocessing is there are some disadvantages in threa......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Ivan Qin on
-            2019-08-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-              <a href="/tags/#Concurrent" title="Concurrent">Concurrent</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/Concurrent-Threading/">
-        <h2 class="post-title">
-                                 
-            [Concurrent] Threading
-        </h2>
-        <h3 class="post-subtitle">
-            Concurrent preview in python
-        </h3>
-        <div class="post-content-preview">
-            Multithreading is an effective way to speed up program calculations.
-1. Add threading
-Firstly, we need import the threading module.
-1import threading
-Get the number of active threading
-12threading.......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Ivan Qin on
-            2019-07-29
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-              <a href="/tags/#Concurrent" title="Concurrent">Concurrent</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/Python-Foundation-2/">
-        <h2 class="post-title">
-                                 
-            [Python] Foundation 2
-        </h2>
-        <h3 class="post-subtitle">
-            The python foundation summary.
-        </h3>
-        <div class="post-content-preview">
-            2 Python Foundation
-2.1 FILE IO
-OPEN File
-1234567my_file=open('my file.txt','w')   #'w':write (write is not add)#'r':read#'a': append! APPEND!my_file.write(text)my_file.close()
-READ File
-file.read(......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Ivan Qin on
-            2019-07-27
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/Python-Foundation-1/">
-        <h2 class="post-title">
-                                 
-            [Python] Foundation 1
-        </h2>
-        <h3 class="post-subtitle">
-            The python foundation summary for some useful knowledge
-        </h3>
-        <div class="post-content-preview">
-            1 Python Foundation
-1.1 Python installation
-Python is one of the most useful programming languages in the world right now. The installation methods are based on the system but generally is download......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Ivan Qin on
-            2019-07-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/article/test/">
-        <h2 class="post-title">
-                                 
-            [Github] Test
-        </h2>
-        <h3 class="post-subtitle">
-            A test t-e-s-t.
-        </h3>
-        <div class="post-content-preview">
-            This is the test for my github personal page.
-Have fun! :)
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Ivan Qin on
-            2019-07-17
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Github" title="Github">Github</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-        <li class="previous">
-            <a href="/page/5/">&larr; Newer Posts</a>
-        </li>
-    
-    
-</ul>
-
-
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/article/Machine-Learning-3/" data-toggle="tooltip" data-placement="top" title="[Machine Learning] 3">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
                 <br>
 
+                <!--打赏-->
+                
+                    <div class="reward">
+                        <div class="reward-button">赏 <span class="reward-code"> 
+                            <span class="alipay-code"> <img class="alipay-img" src="/img/alipay.jpg"><b>支付宝打赏</b></span> 
+                            <span class="wechat-code"> <img class="wechat-img" src="/img/wxpay.jpg"><b>微信打赏</b> </span>
+                            </span></div>
+                        <p class="reward-notice">保存图片 扫一扫 好人平安</p>
+                    </div>
+                
+                <!--打赏-->
+
+                <br>
+                <!--分享-->
+                
+                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
+                    <!--  css & js -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+                
+                <!--分享-->
+                <br>                       
+                
                 <!-- require APlayer -->
                 
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+                <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
 
-                <!-- 如果开启评论功能 -->
+                <div class="aplayer"
+                    data-id="117578447"
+                    data-server="netease"
+                    data-type="playlist"
+                    data-fixed="true" >
+                </div>
+                
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                <!-- disqus comment end -->
+
+                
+
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- ������City�氲װ���� -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NTc1NS8yMjI2Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
+</div>
+<!-- City�氲װ��������� -->
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Machine Learning" title="Machine Learning">Machine Learning</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
                 
             </div>
-
-          <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-    <h5><a href="/about/">ABOUT ME</a></h5>
-    <div class="short-about">
-
-        
-            <img id = "avatar_pic" src="/img/avatar/qin.jpg" />
-        
-
-        
-            <p>秦能统一 禹能治水 计算机数学学生</p>
-        
-
-        <!-- SNS Link -->
-        <ul class="list-inline">
-            
-            
-            
-                <li>
-                    <a target="_blank" href="https://www.zhihu.com/people/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="http://weibo.com/5020251689">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank" href="https://www.facebook.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-
-            
-                <li>
-                    <a target="_blank"  href="https://github.com/ivanqinyu">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
-            
-            
-            
-        </ul>
+        </div>
     </div>
-</section>
+</article>
 
-        <hr>
-    
-        <!-- Featured Tags -->
 
-<section>
-    <!-- no hr -->
-    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-    <div class="tags">
-        
-            
-            <a href="/tags/#Algorithm" title="Algorithm" rel="6">Algorithm</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="48">Python</a>
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#Graph Theory" title="Graph Theory" rel="2">Graph Theory</a>
-            
-        
-            
-            <a href="/tags/#Linear Programming" title="Linear Programming" rel="2">Linear Programming</a>
-            
-        
-            
-            <a href="/tags/#Concurrent" title="Concurrent" rel="2">Concurrent</a>
-            
-        
-            
-            <a href="/tags/#LeetCode" title="LeetCode" rel="26">LeetCode</a>
-            
-        
-            
-            <a href="/tags/#Machine Learning" title="Machine Learning" rel="4">Machine Learning</a>
-            
-        
-            
-            <a href="/tags/#Tensorflow" title="Tensorflow" rel="3">Tensorflow</a>
-            
-        
-            
-            <a href="/tags/#Tkinter" title="Tkinter" rel="11">Tkinter</a>
-            
-        
-            
-        
-    </div>
-</section>
 
-        <hr>
-    
-        
-  <h5>RECENT POSTS</h3>
-  <div class="widget">
-    <ul>
-      
-        <li>
-          <a href="/article/Machine-Learning-4/">[Machine Learning] 4</a>
-        </li>
-      
-        <li>
-          <a href="/article/Machine-Learning-3/">[Machine Learning] 3</a>
-        </li>
-      
-        <li>
-          <a href="/article/Machine-Learning-2/">[Machine Learning] 2</a>
-        </li>
-      
-        <li>
-          <a href="/article/Machine-Learning-1/">[Machine Learning] 1</a>
-        </li>
-      
-        <li>
-          <a href="/article/Algorithm2-Part-9-review/">[Algorithm2] Part 9 review</a>
-        </li>
-      
-    </ul>
-  </div>
 
-        <hr>
-    
-        
-    <h5>ARCHIVES</h5>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">4</span></li></ul>
-    </div>
 
-        <hr>
-    
-</div>
 
-        
-    </div>
-</div>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+<!-- chrome Firefox 中文锚点定位失效-->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<!-- smooth scroll behavior polyfill  -->
+<script type="text/javascript" src="/js/smoothscroll.js"></script>
+<script>
+        $('#toc').on('click','a',function(a){
+            // var isChrome = window.navigator.userAgent.indexOf("Chrome") !== -1;
+            // console.log(window.navigator.userAgent,isChrome)
+                // if(isChrome) {
+                    // console.log(a.currentTarget.outerHTML);
+                    // console.log($(a.currentTarget).attr("href"));
+                    //跳转到指定锚点
+                    // document.getElementById(a.target.innerText.toLowerCase()).scrollIntoView(true);
+                    document.getElementById($(a.currentTarget).attr("href").replace("#","")).scrollIntoView({behavior: 'smooth' });
+                // }
+        })  
+</script>
 
 
     <!-- Footer -->
